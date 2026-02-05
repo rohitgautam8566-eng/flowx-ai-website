@@ -1,0 +1,621 @@
+/* ==========================================
+   FLOATING GLASSMORPHISM NAVBAR
+   ========================================== */
+
+.navbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 40px);
+  max-width: 1400px;
+  z-index: 1000;
+  animation: navbarFloat 1.2s ease-out, navbarIdle 6s ease-in-out infinite 1.2s;
+}
+
+@keyframes navbarFloat {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes navbarIdle {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-4px) scale(1.002);
+  }
+}
+
+.navContainer {
+  background: linear-gradient(
+    135deg,
+    rgba(10, 0, 21, 0.75),
+    rgba(26, 10, 46, 0.8)
+  );
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: var(--radius-round);
+  padding: var(--space-3) var(--space-6);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37), 0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+    0 0 60px rgba(139, 92, 246, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  position: relative;
+  transition: all 0.4s var(--ease-out);
+}
+
+.navContainer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-round);
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(139, 92, 246, 0.4),
+    rgba(6, 182, 212, 0.4)
+  );
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-out);
+  pointer-events: none;
+}
+
+.navbar:hover .navContainer::before {
+  opacity: 1;
+}
+
+/* Scrolled State */
+.navbar.scrolled .navContainer {
+  background: linear-gradient(
+    135deg,
+    rgba(10, 0, 21, 0.88),
+    rgba(26, 10, 46, 0.92)
+  );
+  backdrop-filter: blur(32px) saturate(200%);
+  -webkit-backdrop-filter: blur(32px) saturate(200%);
+  padding: var(--space-2) var(--space-5);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+    0 0 80px rgba(139, 92, 246, 0.2);
+}
+
+.navbar.scrolled {
+  animation: navbarIdle 6s ease-in-out infinite;
+}
+
+/* ==========================================
+   BRAND / LOGO
+   ========================================== */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  text-decoration: none;
+  transition: transform 0.3s var(--ease-out);
+}
+
+.brand:hover {
+  transform: scale(1.05);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 12px rgba(139, 92, 246, 0.6));
+  transition: filter 0.3s var(--ease-out);
+}
+
+.brand:hover .logo {
+  filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.9));
+  animation: logoGlow 1.5s ease-in-out infinite;
+}
+
+@keyframes logoGlow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.9));
+  }
+  50% {
+    filter: drop-shadow(0 0 28px rgba(139, 92, 246, 1));
+  }
+}
+
+.brandName {
+  font-size: 1.25rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ffffff, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+}
+
+/* ==========================================
+   DESKTOP NAVIGATION MENU
+   ========================================== */
+
+.navMenu {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+  justify-content: center;
+}
+
+.navItem {
+  position: relative;
+}
+
+.navLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-2) var(--space-4);
+  color: var(--color-neutral-11);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  border-radius: var(--radius-3);
+  transition: all 0.3s var(--ease-out);
+  position: relative;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* Hover Glow Effect with Light Sweep */
+.navLink::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-3);
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(6, 182, 212, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s var(--ease-out);
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  border-radius: var(--radius-3);
+  transition: left 0.6s var(--ease-out);
+  pointer-events: none;
+}
+
+.navLink:hover::before {
+  opacity: 1;
+}
+
+.navLink:hover::after {
+  left: 100%;
+}
+
+/* Hover Underline Animation */
+.navLink span {
+  position: relative;
+  z-index: 1;
+}
+
+.navLink span::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #8b5cf6, #06b6d4);
+  border-radius: var(--radius-1);
+  transition: width 0.3s var(--ease-out);
+}
+
+.navLink:hover span::after {
+  width: 100%;
+}
+
+.navLink:hover {
+  color: var(--color-accent-11);
+  text-shadow: 0 0 12px rgba(139, 92, 246, 0.5);
+  transform: translateY(-2px) scale(1.02);
+}
+
+.chevron {
+  transition: transform 0.3s var(--ease-out);
+}
+
+.navItem:hover .chevron {
+  transform: rotate(180deg);
+}
+
+/* ==========================================
+   SERVICES DROPDOWN
+   ========================================== */
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 420px;
+  animation: dropdownSlide 0.3s var(--ease-out);
+  z-index: 100;
+}
+
+@keyframes dropdownSlide {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.dropdownContent {
+  background: linear-gradient(
+    135deg,
+    rgba(10, 0, 21, 0.95),
+    rgba(26, 10, 46, 0.95)
+  );
+  backdrop-filter: blur(32px) saturate(180%);
+  -webkit-backdrop-filter: blur(32px) saturate(180%);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: var(--radius-4);
+  padding: var(--space-3);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+    0 0 60px rgba(139, 92, 246, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-3);
+  background: rgba(139, 92, 246, 0.03);
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  text-decoration: none;
+  transition: all 0.3s var(--ease-out);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Light Sweep Effect */
+.dropdownItem::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.08),
+    transparent
+  );
+  transition: left 0.5s var(--ease-out);
+}
+
+.dropdownItem:hover::before {
+  left: 100%;
+}
+
+.dropdownItem:hover {
+  background: rgba(139, 92, 246, 0.1);
+  border-color: rgba(139, 92, 246, 0.4);
+  transform: translateX(4px);
+  box-shadow: 0 0 24px rgba(139, 92, 246, 0.2);
+}
+
+.dropdownIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-2);
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(6, 182, 212, 0.2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent-11);
+  flex-shrink: 0;
+  transition: all 0.3s var(--ease-out);
+}
+
+.dropdownItem:hover .dropdownIcon {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(6, 182, 212, 0.3));
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+}
+
+.dropdownInfo {
+  flex: 1;
+}
+
+.dropdownTitle {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--color-neutral-12);
+  margin-bottom: var(--space-1);
+  transition: color 0.3s var(--ease-out);
+}
+
+.dropdownItem:hover .dropdownTitle {
+  color: var(--color-accent-11);
+}
+
+.dropdownDesc {
+  font-size: 0.8125rem;
+  color: var(--color-neutral-10);
+  line-height: 1.4;
+}
+
+/* ==========================================
+   CTA BUTTON
+   ========================================== */
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+  color: white;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  border-radius: var(--radius-round);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s var(--ease-out);
+  white-space: nowrap;
+  box-shadow: 0 0 24px rgba(139, 92, 246, 0.4);
+}
+
+/* Ripple / Light Sweep Effect */
+.ctaButton::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s var(--ease-out), height 0.6s var(--ease-out);
+}
+
+.ctaButton:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.ctaButton::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  animation: ctaSweep 3s linear infinite;
+}
+
+@keyframes ctaSweep {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+.ctaButton span {
+  position: relative;
+  z-index: 1;
+}
+
+.ctaButton svg {
+  position: relative;
+  z-index: 1;
+}
+
+.ctaButton:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 40px rgba(139, 92, 246, 0.6), 0 0 60px rgba(6, 182, 212, 0.4),
+    0 8px 24px rgba(0, 0, 0, 0.3);
+  filter: brightness(1.1);
+}
+
+.ctaButton:active {
+  transform: translateY(-1px) scale(1);
+}
+
+/* ==========================================
+   MOBILE MENU
+   ========================================== */
+
+.mobileToggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--color-neutral-11);
+  cursor: pointer;
+  padding: var(--space-2);
+  border-radius: var(--radius-2);
+  transition: all 0.3s var(--ease-out);
+}
+
+.mobileToggle:hover {
+  color: var(--color-accent-11);
+  background: rgba(139, 92, 246, 0.1);
+}
+
+.mobileMenu {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(10, 0, 21, 0.95),
+    rgba(26, 10, 46, 0.95)
+  );
+  backdrop-filter: blur(32px) saturate(180%);
+  -webkit-backdrop-filter: blur(32px) saturate(180%);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: var(--radius-4);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5), 0 0 60px rgba(139, 92, 246, 0.2);
+  overflow: hidden;
+  animation: mobileMenuSlide 0.3s var(--ease-out);
+}
+
+@keyframes mobileMenuSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobileMenuContent {
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.mobileMenuItem {
+  padding: var(--space-3) var(--space-4);
+  color: var(--color-neutral-11);
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: var(--radius-2);
+  transition: all 0.3s var(--ease-out);
+  background: rgba(139, 92, 246, 0.03);
+  border: 1px solid rgba(139, 92, 246, 0.15);
+}
+
+.mobileMenuItem:hover {
+  color: var(--color-accent-11);
+  background: rgba(139, 92, 246, 0.1);
+  border-color: rgba(139, 92, 246, 0.3);
+  transform: translateX(4px);
+}
+
+.mobileCtaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-5);
+  background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+  color: white;
+  font-weight: 600;
+  border-radius: var(--radius-3);
+  text-decoration: none;
+  margin-top: var(--space-3);
+  transition: all 0.3s var(--ease-out);
+}
+
+.mobileCtaButton:hover {
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 1024px) {
+  .navMenu {
+    display: none;
+  }
+
+  .ctaButton {
+    display: none;
+  }
+
+  .mobileToggle {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    top: 12px;
+    width: calc(100% - 24px);
+  }
+
+  .navContainer {
+    padding: var(--space-2) var(--space-4);
+  }
+
+  .brandName {
+    font-size: 1.125rem;
+  }
+
+  .logo svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    top: 8px;
+    width: calc(100% - 16px);
+  }
+
+  .navContainer {
+    padding: var(--space-2) var(--space-3);
+  }
+
+  .brand {
+    gap: var(--space-2);
+  }
+
+  .brandName {
+    font-size: 1rem;
+  }
+}

@@ -1,5 +1,6 @@
 import type { Route } from "./+types/home";
 import { MessageCircle, Sparkles, ChevronRight, Zap, Clock, TrendingUp, Users, CheckCircle } from "lucide-react";
+import { Navbar } from "~/components/navbar/navbar";
 import styles from "./home.module.css";
 
 export function meta({}: Route.MetaArgs) {
@@ -12,6 +13,7 @@ export function meta({}: Route.MetaArgs) {
 export default function Home() {
   return (
     <div className={styles.page}>
+      <Navbar />
       {/* Hero Section */}
       <section className={styles.hero}>
         <div className={styles.heroBackground} />
