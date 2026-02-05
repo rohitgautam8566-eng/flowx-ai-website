@@ -205,107 +205,154 @@ export default function Home() {
       <section id="website-features" className={styles.deepDive}>
         <h2 className={styles.deepDiveTitle}>Restaurant Website Development</h2>
 
-        {/* Features Grid - Pages */}
-        <h3 className={styles.sectionSubtitle}>
-          Pages Included
-        </h3>
-        <div className={styles.featuresGrid}>
-          <div className={styles.featureItem}>
-            <CheckCircle className={styles.featureItemIcon} size={20} />
-            <span className={styles.featureItemText}>Home Page</span>
+        {/* Pages & Core Features - Content Block */}
+        <div className={styles.contentBlock}>
+          <div className={styles.contentBlockText}>
+            <h3 className={styles.contentBlockTitle}>Complete Website Package</h3>
+            <p className={styles.contentBlockDescription}>
+              We build fully responsive restaurant websites with all the essential pages your customers expect. Every website includes mobile-optimized design, fast loading speeds, and SEO structure to help you rank higher in local searches.
+            </p>
+            <div className={styles.featureHighlights}>
+              <div className={styles.highlightItem}>
+                <div className={styles.highlightIcon}>🏠</div>
+                <div className={styles.highlightText}>
+                  <div className={styles.highlightTitle}>Essential Pages</div>
+                  <div className={styles.highlightDesc}>Home, About, Menu, Gallery, Contact & Offer Pages</div>
+                </div>
+              </div>
+              <div className={styles.highlightItem}>
+                <div className={styles.highlightIcon}>📱</div>
+                <div className={styles.highlightText}>
+                  <div className={styles.highlightTitle}>Mobile-First Design</div>
+                  <div className={styles.highlightDesc}>Perfect experience on all devices with responsive layouts</div>
+                </div>
+              </div>
+              <div className={styles.highlightItem}>
+                <div className={styles.highlightIcon}>⚡</div>
+                <div className={styles.highlightText}>
+                  <div className={styles.highlightTitle}>Performance Optimized</div>
+                  <div className={styles.highlightDesc}>Lightning-fast loading speeds for better user experience</div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className={styles.featureItem}>
-            <CheckCircle className={styles.featureItemIcon} size={20} />
-            <span className={styles.featureItemText}>About Page</span>
-          </div>
-          <div className={styles.featureItem}>
-            <CheckCircle className={styles.featureItemIcon} size={20} />
-            <span className={styles.featureItemText}>Menu Page</span>
-          </div>
-          <div className={styles.featureItem}>
-            <CheckCircle className={styles.featureItemIcon} size={20} />
-            <span className={styles.featureItemText}>Gallery Page</span>
-          </div>
-          <div className={styles.featureItem}>
-            <CheckCircle className={styles.featureItemIcon} size={20} />
-            <span className={styles.featureItemText}>Contact Page</span>
-          </div>
-          <div className={styles.featureItem}>
-            <CheckCircle className={styles.featureItemIcon} size={20} />
-            <span className={styles.featureItemText}>Offer Landing Pages</span>
+          <div className={styles.contentBlockFeatures}>
+            <div className={styles.featureColumn}>
+              <div className={styles.featureColumnTitle}>Pages Included</div>
+              <div className={styles.compactFeature}>
+                <CheckCircle size={16} />
+                <span>Home Page</span>
+              </div>
+              <div className={styles.compactFeature}>
+                <CheckCircle size={16} />
+                <span>About Page</span>
+              </div>
+              <div className={styles.compactFeature}>
+                <CheckCircle size={16} />
+                <span>Menu Page</span>
+              </div>
+              <div className={styles.compactFeature}>
+                <CheckCircle size={16} />
+                <span>Gallery Page</span>
+              </div>
+              <div className={styles.compactFeature}>
+                <CheckCircle size={16} />
+                <span>Contact Page</span>
+              </div>
+              <div className={styles.compactFeature}>
+                <CheckCircle size={16} />
+                <span>Offer Landing Pages</span>
+              </div>
+            </div>
+            <div className={styles.featureColumn}>
+              <div className={styles.featureColumnTitle}>Core Features</div>
+              <div className={styles.compactFeature}>
+                <CheckCircle size={16} />
+                <span>Premium UI Design</span>
+              </div>
+              <div className={styles.compactFeature}>
+                <CheckCircle size={16} />
+                <span>WhatsApp Integration</span>
+              </div>
+              <div className={styles.compactFeature}>
+                <CheckCircle size={16} />
+                <span>Google Maps</span>
+              </div>
+              <div className={styles.compactFeature}>
+                <CheckCircle size={16} />
+                <span>SEO Optimized</span>
+              </div>
+              <div className={styles.compactFeature}>
+                <CheckCircle size={16} />
+                <span>Fast Loading</span>
+              </div>
+              <div className={styles.compactFeature}>
+                <CheckCircle size={16} />
+                <span>Mobile Responsive</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Core Features */}
-        <h3 className={styles.sectionSubtitle}>
-          Core Website Features
-        </h3>
-        <div className={styles.featuresGrid}>
-          <div className={styles.featureItem}>
-            <CheckCircle className={styles.featureItemIcon} size={20} />
-            <span className={styles.featureItemText}>Mobile responsive design</span>
+        {/* AI Enhancements Banner */}
+        <div className={styles.aiEnhancementsBanner}>
+          <div className={styles.bannerIcon}>
+            <Sparkles size={32} />
           </div>
-          <div className={styles.featureItem}>
-            <CheckCircle className={styles.featureItemIcon} size={20} />
-            <span className={styles.featureItemText}>Fast loading speed</span>
-          </div>
-          <div className={styles.featureItem}>
-            <CheckCircle className={styles.featureItemIcon} size={20} />
-            <span className={styles.featureItemText}>Premium UI design</span>
-          </div>
-          <div className={styles.featureItem}>
-            <CheckCircle className={styles.featureItemIcon} size={20} />
-            <span className={styles.featureItemText}>WhatsApp ordering integration</span>
-          </div>
-          <div className={styles.featureItem}>
-            <CheckCircle className={styles.featureItemIcon} size={20} />
-            <span className={styles.featureItemText}>Google Maps integration</span>
-          </div>
-          <div className={styles.featureItem}>
-            <CheckCircle className={styles.featureItemIcon} size={20} />
-            <span className={styles.featureItemText}>SEO optimized structure</span>
+          <div className={styles.bannerContent}>
+            <h3 className={styles.bannerTitle}>AI-Powered Content Generation</h3>
+            <p className={styles.bannerDescription}>
+              Every website includes AI-generated food photography, branding images, and professionally optimized copywriting — saving you thousands in content creation costs.
+            </p>
+            <div className={styles.bannerFeatures}>
+              <div className={styles.bannerFeature}>
+                <Sparkles size={18} />
+                <span>AI-Generated Food & Brand Images</span>
+              </div>
+              <div className={styles.bannerFeature}>
+                <Sparkles size={18} />
+                <span>SEO-Optimized Content Writing</span>
+              </div>
+              <div className={styles.bannerFeature}>
+                <Sparkles size={18} />
+                <span>Professional Copywriting</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* AI Enhancements */}
-        <h3 className={styles.sectionSubtitle}>
-          AI-Powered Enhancements
-        </h3>
-        <div className={styles.featuresGrid}>
-          <div className={styles.featureItem}>
-            <Sparkles className={styles.featureItemIcon} size={20} />
-            <span className={styles.featureItemText}>AI generated food & branding images</span>
-          </div>
-          <div className={styles.featureItem}>
-            <Sparkles className={styles.featureItemIcon} size={20} />
-            <span className={styles.featureItemText}>AI optimized website content</span>
-          </div>
-          <div className={styles.featureItem}>
-            <Sparkles className={styles.featureItemIcon} size={20} />
-            <span className={styles.featureItemText}>AI assisted copywriting</span>
-          </div>
-        </div>
-
-        {/* Maintenance */}
-        <h3 className={styles.sectionSubtitle}>
-          Maintenance & Support
-        </h3>
-        <div className={styles.featuresGrid}>
-          <div className={styles.featureItem}>
-            <CheckCircle className={styles.featureItemIcon} size={20} />
-            <span className={styles.featureItemText}>Hosting</span>
-          </div>
-          <div className={styles.featureItem}>
-            <CheckCircle className={styles.featureItemIcon} size={20} />
-            <span className={styles.featureItemText}>Security updates</span>
-          </div>
-          <div className={styles.featureItem}>
-            <CheckCircle className={styles.featureItemIcon} size={20} />
-            <span className={styles.featureItemText}>Backup system</span>
-          </div>
-          <div className={styles.featureItem}>
-            <CheckCircle className={styles.featureItemIcon} size={20} />
-            <span className={styles.featureItemText}>Minor updates</span>
+        {/* Maintenance - Horizontal Checklist */}
+        <div className={styles.maintenanceSection}>
+          <h3 className={styles.maintenanceTitle}>Included Maintenance & Support</h3>
+          <div className={styles.maintenanceGrid}>
+            <div className={styles.maintenanceItem}>
+              <div className={styles.maintenanceIcon}>🛡️</div>
+              <div className={styles.maintenanceText}>
+                <div className={styles.maintenanceLabel}>Hosting Included</div>
+                <div className={styles.maintenanceDesc}>Reliable cloud hosting</div>
+              </div>
+            </div>
+            <div className={styles.maintenanceItem}>
+              <div className={styles.maintenanceIcon}>🔒</div>
+              <div className={styles.maintenanceText}>
+                <div className={styles.maintenanceLabel}>Security Updates</div>
+                <div className={styles.maintenanceDesc}>Regular patches & monitoring</div>
+              </div>
+            </div>
+            <div className={styles.maintenanceItem}>
+              <div className={styles.maintenanceIcon}>💾</div>
+              <div className={styles.maintenanceText}>
+                <div className={styles.maintenanceLabel}>Automatic Backups</div>
+                <div className={styles.maintenanceDesc}>Daily data protection</div>
+              </div>
+            </div>
+            <div className={styles.maintenanceItem}>
+              <div className={styles.maintenanceIcon}>🔧</div>
+              <div className={styles.maintenanceText}>
+                <div className={styles.maintenanceLabel}>Minor Updates</div>
+                <div className={styles.maintenanceDesc}>Content changes included</div>
+              </div>
+            </div>
           </div>
         </div>
 
