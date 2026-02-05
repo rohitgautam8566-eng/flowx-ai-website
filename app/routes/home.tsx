@@ -1,87 +1,77 @@
 import type { Route } from "./+types/home";
-import {
-  MessageSquare,
-  Globe,
-  ArrowRight,
-  CheckCircle,
-  Zap,
-  TrendingUp,
-  Users,
-  Clock,
-  Shield,
-  Star,
-} from "lucide-react";
+import { MessageCircle, Sparkles, ChevronRight, Zap, Clock, TrendingUp, Users, CheckCircle } from "lucide-react";
 import styles from "./home.module.css";
 
 export function meta({}: Route.MetaArgs) {
   return [
     { title: "FlowX AI - Automate Your Restaurant With AI" },
-    {
-      name: "description",
-      content:
-        "AI-powered WhatsApp ordering and high-converting restaurant websites — designed to increase orders and reduce manual work.",
-    },
+    { name: "description", content: "AI-powered WhatsApp ordering and high-converting restaurant websites" },
   ];
 }
 
 export default function Home() {
-  const whatsappLink = "https://wa.me/919006455592";
-
   return (
     <div className={styles.page}>
       {/* Hero Section */}
       <section className={styles.hero}>
-        <div className={styles.heroBackground}>
-          <div className={styles.heroGrid} />
-          <div className={styles.floatingElement} />
-          <div className={styles.floatingElement} />
-          <div className={styles.floatingElement} />
-        </div>
+        <div className={styles.heroBackground} />
+        <div className={styles.heroOrb} />
+        <div className={styles.heroOrb} />
+        <div className={styles.heroOrb} />
+        <div className={styles.floatingElement} />
+        <div className={styles.floatingElement} />
+        <div className={styles.floatingElement} />
 
         <div className={styles.heroContent}>
-          <h1 className={styles.heroTitle}>Automate Your Restaurant With AI</h1>
+          <h1 className={styles.heroTitle}>
+            Automate Your Restaurant With AI
+          </h1>
           <p className={styles.heroSubtitle}>
-            AI-powered WhatsApp ordering and high-converting restaurant websites — designed to increase orders and
-            reduce manual work.
+            AI-powered WhatsApp ordering and high-converting restaurant websites — designed to increase orders and reduce manual work.
           </p>
           <div className={styles.heroCtas}>
-            <a href={whatsappLink} className={styles.primaryCta} target="_blank" rel="noopener noreferrer">
-              Get Started on WhatsApp
+            <a 
+              href="https://wa.me/919006455592" 
+              className={styles.ctaPrimary}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>Get Started on WhatsApp</span>
+              <MessageCircle size={20} />
             </a>
-            <a href="#services" className={styles.secondaryCta}>
-              View Services
+            <a href="#services" className={styles.ctaSecondary}>
+              <span>View Services</span>
+              <ChevronRight size={20} />
             </a>
           </div>
         </div>
       </section>
 
       {/* Trust Section */}
-      <section className={styles.trustSection}>
-        <h2 className={styles.trustStatement}>Built for modern restaurants ready to scale</h2>
-        <div className={styles.trustBadges}>
-          <div className={styles.badge}>AI-Powered Automation</div>
-          <div className={styles.badge}>24/7 Customer Support</div>
-          <div className={styles.badge}>Restaurant Specialists</div>
-          <div className={styles.badge}>Proven Results</div>
+      <section className={styles.trust}>
+        <div className={styles.trustBadge}>
+          <Sparkles size={20} style={{ display: 'inline', marginRight: '8px', verticalAlign: 'middle' }} />
+          Built for modern restaurants ready to scale with AI
         </div>
       </section>
 
-      {/* Services Section */}
-      <section id="services" className={styles.servicesSection}>
+      {/* Services Overview */}
+      <section id="services" className={styles.services}>
         <div className={styles.servicesGrid}>
           {/* WhatsApp AI Card */}
           <div className={styles.serviceCard}>
-            <MessageSquare className={styles.serviceIcon} />
-            <h3 className={styles.serviceTitle}>WhatsApp AI Automation</h3>
+            <div className={styles.serviceIcon}>
+              <MessageCircle size={28} />
+            </div>
+            <h2 className={styles.serviceTitle}>WhatsApp AI Automation</h2>
             <p className={styles.serviceDescription}>
-              Transform customer conversations into confirmed orders. Our AI handles inquiries, takes orders, and
-              manages reservations 24/7 through WhatsApp.
+              Automate customer communication, orders, and reservations with intelligent AI that works 24/7.
             </p>
-            <div className={styles.serviceButtons}>
-              <a href="#whatsapp-features" className={styles.serviceButton}>
+            <div className={styles.serviceCtas}>
+              <a href="#whatsapp-features" className={`${styles.serviceBtn} ${styles.serviceBtnPrimary}`}>
                 View Features
               </a>
-              <a href="#whatsapp-pricing" className={styles.serviceButtonOutline}>
+              <a href="#whatsapp-pricing" className={`${styles.serviceBtn} ${styles.serviceBtnSecondary}`}>
                 View Pricing
               </a>
             </div>
@@ -89,17 +79,18 @@ export default function Home() {
 
           {/* Website Development Card */}
           <div className={styles.serviceCard}>
-            <Globe className={styles.serviceIcon} />
-            <h3 className={styles.serviceTitle}>Restaurant Website Development</h3>
+            <div className={styles.serviceIcon}>
+              <Sparkles size={28} />
+            </div>
+            <h2 className={styles.serviceTitle}>Restaurant Website Development</h2>
             <p className={styles.serviceDescription}>
-              Premium, fast-loading websites designed to convert visitors into customers. Integrated with AI-powered
-              features and WhatsApp ordering.
+              Premium websites with AI-generated content and images, optimized for conversion and mobile users.
             </p>
-            <div className={styles.serviceButtons}>
-              <a href="#website-features" className={styles.serviceButton}>
+            <div className={styles.serviceCtas}>
+              <a href="#website-features" className={`${styles.serviceBtn} ${styles.serviceBtnPrimary}`}>
                 View Features
               </a>
-              <a href="#website-pricing" className={styles.serviceButtonOutline}>
+              <a href="#website-pricing" className={`${styles.serviceBtn} ${styles.serviceBtnSecondary}`}>
                 View Pricing
               </a>
             </div>
@@ -108,88 +99,100 @@ export default function Home() {
       </section>
 
       {/* WhatsApp AI Deep Dive */}
-      <section id="whatsapp-features" className={styles.deepDiveSection}>
-        <div className={styles.sectionHeader}>
-          <h2 className={styles.sectionTitle}>WhatsApp AI Automation</h2>
-          <p className={styles.sectionSubtitle}>
-            Intelligent automation that handles customer conversations like your best staff member
-          </p>
-        </div>
+      <section id="whatsapp-features" className={styles.deepDive}>
+        <h2 className={styles.deepDiveTitle}>WhatsApp AI Automation</h2>
 
+        {/* Flow Diagram */}
         <div className={styles.flowDiagram}>
-          <div className={styles.flowStep}>Customer</div>
-          <ArrowRight className={styles.flowArrow} />
-          <div className={styles.flowStep}>WhatsApp</div>
-          <ArrowRight className={styles.flowArrow} />
-          <div className={styles.flowStep}>AI</div>
-          <ArrowRight className={styles.flowArrow} />
-          <div className={styles.flowStep}>Order Confirmed</div>
-        </div>
-
-        <div className={styles.featuresList}>
-          <div className={styles.featureItem}>
-            <CheckCircle className={styles.featureIcon} />
-            <span className={styles.featureText}>Automatic order taking with menu integration</span>
+          <div className={styles.flowStep}>
+            <div className={styles.flowIcon}>👤</div>
+            <div>Customer</div>
           </div>
-          <div className={styles.featureItem}>
-            <CheckCircle className={styles.featureIcon} />
-            <span className={styles.featureText}>Table reservations and booking management</span>
+          <div className={styles.flowArrow}>→</div>
+          <div className={styles.flowStep}>
+            <div className={styles.flowIcon}>💬</div>
+            <div>WhatsApp</div>
           </div>
-          <div className={styles.featureItem}>
-            <CheckCircle className={styles.featureIcon} />
-            <span className={styles.featureText}>Digital menu sharing with images and prices</span>
+          <div className={styles.flowArrow}>→</div>
+          <div className={styles.flowStep}>
+            <div className={styles.flowIcon}>🤖</div>
+            <div>AI Agent</div>
           </div>
-          <div className={styles.featureItem}>
-            <CheckCircle className={styles.featureIcon} />
-            <span className={styles.featureText}>FAQ automation for common questions</span>
-          </div>
-          <div className={styles.featureItem}>
-            <CheckCircle className={styles.featureIcon} />
-            <span className={styles.featureText}>Customer data capture and CRM integration</span>
-          </div>
-          <div className={styles.featureItem}>
-            <CheckCircle className={styles.featureIcon} />
-            <span className={styles.featureText}>Human handover for complex requests</span>
-          </div>
-          <div className={styles.featureItem}>
-            <CheckCircle className={styles.featureIcon} />
-            <span className={styles.featureText}>24/7 response automation - never miss an order</span>
-          </div>
-          <div className={styles.featureItem}>
-            <CheckCircle className={styles.featureIcon} />
-            <span className={styles.featureText}>Multi-language support for diverse customers</span>
+          <div className={styles.flowArrow}>→</div>
+          <div className={styles.flowStep}>
+            <div className={styles.flowIcon}>✅</div>
+            <div>Order Confirmed</div>
           </div>
         </div>
 
+        {/* Features Grid */}
+        <div className={styles.featuresGrid}>
+          <div className={styles.featureItem}>
+            <CheckCircle className={styles.featureItemIcon} size={20} />
+            <span className={styles.featureItemText}>Automatic order taking</span>
+          </div>
+          <div className={styles.featureItem}>
+            <CheckCircle className={styles.featureItemIcon} size={20} />
+            <span className={styles.featureItemText}>Table reservations</span>
+          </div>
+          <div className={styles.featureItem}>
+            <CheckCircle className={styles.featureItemIcon} size={20} />
+            <span className={styles.featureItemText}>Digital menu sharing</span>
+          </div>
+          <div className={styles.featureItem}>
+            <CheckCircle className={styles.featureItemIcon} size={20} />
+            <span className={styles.featureItemText}>FAQ automation</span>
+          </div>
+          <div className={styles.featureItem}>
+            <CheckCircle className={styles.featureItemIcon} size={20} />
+            <span className={styles.featureItemText}>Customer data capture</span>
+          </div>
+          <div className={styles.featureItem}>
+            <CheckCircle className={styles.featureItemIcon} size={20} />
+            <span className={styles.featureItemText}>Human handover option</span>
+          </div>
+          <div className={styles.featureItem}>
+            <CheckCircle className={styles.featureItemIcon} size={20} />
+            <span className={styles.featureItemText}>24/7 response automation</span>
+          </div>
+        </div>
+
+        {/* Pricing */}
         <div id="whatsapp-pricing" className={styles.pricingGrid}>
           <div className={styles.pricingCard}>
-            <h3 className={styles.planName}>Without POS Integration</h3>
-            <div className={styles.planSetup}>₹5,000</div>
-            <div className={styles.planMonthly}>₹1,500/month</div>
-            <ul className={styles.planFeatures}>
-              <li>AI-powered WhatsApp bot</li>
-              <li>Order taking automation</li>
-              <li>Menu management</li>
-              <li>Customer database</li>
+            <h3 className={styles.pricingTitle}>Without POS Integration</h3>
+            <div className={styles.pricingPrice}>
+              <div className={styles.pricingSetup}>₹5,000</div>
+              <div className={styles.pricingMonthly}>Setup Fee</div>
+              <div className={styles.pricingSetup} style={{ marginTop: '1rem' }}>₹1,500</div>
+              <div className={styles.pricingMonthly}>Monthly</div>
+            </div>
+            <ul className={styles.pricingFeatures}>
+              <li>AI WhatsApp automation</li>
+              <li>Order management</li>
+              <li>Customer support</li>
               <li>Basic analytics</li>
             </ul>
-            <a href={whatsappLink} className={styles.planCta} target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/919006455592" className={styles.pricingCta} target="_blank" rel="noopener noreferrer">
               Get Started
             </a>
           </div>
 
           <div className={`${styles.pricingCard} ${styles.recommended}`}>
-            <h3 className={styles.planName}>With POS Integration</h3>
-            <div className={styles.planSetup}>₹10,000</div>
-            <div className={styles.planMonthly}>₹2,000/month</div>
-            <ul className={styles.planFeatures}>
+            <h3 className={styles.pricingTitle}>With POS Integration</h3>
+            <div className={styles.pricingPrice}>
+              <div className={styles.pricingSetup}>₹10,000</div>
+              <div className={styles.pricingMonthly}>Setup Fee</div>
+              <div className={styles.pricingSetup} style={{ marginTop: '1rem' }}>₹2,000</div>
+              <div className={styles.pricingMonthly}>Monthly</div>
+            </div>
+            <ul className={styles.pricingFeatures}>
               <li>Everything in basic plan</li>
               <li>POS system integration</li>
               <li>Real-time inventory sync</li>
               <li>Advanced analytics</li>
-              <li>Priority support</li>
             </ul>
-            <a href={whatsappLink} className={styles.planCta} target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/919006455592" className={styles.pricingCta} target="_blank" rel="noopener noreferrer">
               Get Started
             </a>
           </div>
@@ -197,189 +200,253 @@ export default function Home() {
       </section>
 
       {/* Website Development Deep Dive */}
-      <section id="website-features" className={styles.deepDiveSection}>
-        <div className={styles.sectionHeader}>
-          <h2 className={styles.sectionTitle}>Restaurant Website Development</h2>
-          <p className={styles.sectionSubtitle}>Premium websites that convert visitors into loyal customers</p>
-        </div>
+      <section id="website-features" className={styles.deepDive}>
+        <h2 className={styles.deepDiveTitle}>Restaurant Website Development</h2>
 
-        <div className={styles.featuresList}>
+        {/* Features Grid - Pages */}
+        <h3 style={{ fontSize: '1.75rem', fontWeight: '700', marginBottom: 'var(--space-5)', color: 'var(--color-neutral-12)' }}>
+          Pages Included
+        </h3>
+        <div className={styles.featuresGrid}>
           <div className={styles.featureItem}>
-            <Globe className={styles.featureIcon} />
-            <div>
-              <strong className={styles.featureText}>Complete Page Suite</strong>
-              <p className={styles.featureText}>Home, About, Menu, Gallery, Contact & Custom Offer Pages</p>
-            </div>
+            <CheckCircle className={styles.featureItemIcon} size={20} />
+            <span className={styles.featureItemText}>Home Page</span>
           </div>
           <div className={styles.featureItem}>
-            <Zap className={styles.featureIcon} />
-            <div>
-              <strong className={styles.featureText}>Lightning Fast Performance</strong>
-              <p className={styles.featureText}>Optimized loading speeds for better user experience and SEO</p>
-            </div>
+            <CheckCircle className={styles.featureItemIcon} size={20} />
+            <span className={styles.featureItemText}>About Page</span>
           </div>
           <div className={styles.featureItem}>
-            <MessageSquare className={styles.featureIcon} />
-            <div>
-              <strong className={styles.featureText}>WhatsApp Integration</strong>
-              <p className={styles.featureText}>Direct ordering through WhatsApp from your website</p>
-            </div>
+            <CheckCircle className={styles.featureItemIcon} size={20} />
+            <span className={styles.featureItemText}>Menu Page</span>
           </div>
           <div className={styles.featureItem}>
-            <TrendingUp className={styles.featureIcon} />
-            <div>
-              <strong className={styles.featureText}>SEO Optimized</strong>
-              <p className={styles.featureText}>Structured for maximum visibility on Google searches</p>
-            </div>
+            <CheckCircle className={styles.featureItemIcon} size={20} />
+            <span className={styles.featureItemText}>Gallery Page</span>
           </div>
           <div className={styles.featureItem}>
-            <Star className={styles.featureIcon} />
-            <div>
-              <strong className={styles.featureText}>AI-Generated Content</strong>
-              <p className={styles.featureText}>Professional food images, branding, and copywriting powered by AI</p>
-            </div>
+            <CheckCircle className={styles.featureItemIcon} size={20} />
+            <span className={styles.featureItemText}>Contact Page</span>
           </div>
           <div className={styles.featureItem}>
-            <Shield className={styles.featureIcon} />
-            <div>
-              <strong className={styles.featureText}>Secure & Maintained</strong>
-              <p className={styles.featureText}>Hosting, security updates, backups, and ongoing support</p>
-            </div>
+            <CheckCircle className={styles.featureItemIcon} size={20} />
+            <span className={styles.featureItemText}>Offer Landing Pages</span>
           </div>
         </div>
 
-        <div id="website-pricing" className={styles.pricingGrid}>
+        {/* Core Features */}
+        <h3 style={{ fontSize: '1.75rem', fontWeight: '700', margin: 'var(--space-8) 0 var(--space-5)', color: 'var(--color-neutral-12)' }}>
+          Core Website Features
+        </h3>
+        <div className={styles.featuresGrid}>
+          <div className={styles.featureItem}>
+            <CheckCircle className={styles.featureItemIcon} size={20} />
+            <span className={styles.featureItemText}>Mobile responsive design</span>
+          </div>
+          <div className={styles.featureItem}>
+            <CheckCircle className={styles.featureItemIcon} size={20} />
+            <span className={styles.featureItemText}>Fast loading speed</span>
+          </div>
+          <div className={styles.featureItem}>
+            <CheckCircle className={styles.featureItemIcon} size={20} />
+            <span className={styles.featureItemText}>Premium UI design</span>
+          </div>
+          <div className={styles.featureItem}>
+            <CheckCircle className={styles.featureItemIcon} size={20} />
+            <span className={styles.featureItemText}>WhatsApp ordering integration</span>
+          </div>
+          <div className={styles.featureItem}>
+            <CheckCircle className={styles.featureItemIcon} size={20} />
+            <span className={styles.featureItemText}>Google Maps integration</span>
+          </div>
+          <div className={styles.featureItem}>
+            <CheckCircle className={styles.featureItemIcon} size={20} />
+            <span className={styles.featureItemText}>SEO optimized structure</span>
+          </div>
+        </div>
+
+        {/* AI Enhancements */}
+        <h3 style={{ fontSize: '1.75rem', fontWeight: '700', margin: 'var(--space-8) 0 var(--space-5)', color: 'var(--color-neutral-12)' }}>
+          AI-Powered Enhancements
+        </h3>
+        <div className={styles.featuresGrid}>
+          <div className={styles.featureItem}>
+            <Sparkles className={styles.featureItemIcon} size={20} />
+            <span className={styles.featureItemText}>AI generated food & branding images</span>
+          </div>
+          <div className={styles.featureItem}>
+            <Sparkles className={styles.featureItemIcon} size={20} />
+            <span className={styles.featureItemText}>AI optimized website content</span>
+          </div>
+          <div className={styles.featureItem}>
+            <Sparkles className={styles.featureItemIcon} size={20} />
+            <span className={styles.featureItemText}>AI assisted copywriting</span>
+          </div>
+        </div>
+
+        {/* Maintenance */}
+        <h3 style={{ fontSize: '1.75rem', fontWeight: '700', margin: 'var(--space-8) 0 var(--space-5)', color: 'var(--color-neutral-12)' }}>
+          Maintenance & Support
+        </h3>
+        <div className={styles.featuresGrid}>
+          <div className={styles.featureItem}>
+            <CheckCircle className={styles.featureItemIcon} size={20} />
+            <span className={styles.featureItemText}>Hosting</span>
+          </div>
+          <div className={styles.featureItem}>
+            <CheckCircle className={styles.featureItemIcon} size={20} />
+            <span className={styles.featureItemText}>Security updates</span>
+          </div>
+          <div className={styles.featureItem}>
+            <CheckCircle className={styles.featureItemIcon} size={20} />
+            <span className={styles.featureItemText}>Backup system</span>
+          </div>
+          <div className={styles.featureItem}>
+            <CheckCircle className={styles.featureItemIcon} size={20} />
+            <span className={styles.featureItemText}>Minor updates</span>
+          </div>
+        </div>
+
+        {/* Pricing */}
+        <div id="website-pricing" className={styles.pricingGrid} style={{ marginTop: 'var(--space-8)' }}>
           <div className={styles.pricingCard}>
-            <h3 className={styles.planName}>Standard Website</h3>
-            <div className={styles.planSetup}>₹5,000</div>
-            <div className={styles.planMonthly}>₹500/month</div>
-            <ul className={styles.planFeatures}>
-              <li>5 essential pages</li>
-              <li>Mobile responsive design</li>
-              <li>WhatsApp integration</li>
-              <li>Basic SEO setup</li>
-              <li>Hosting included</li>
-              <li>Monthly updates</li>
+            <h3 className={styles.pricingTitle}>Standard Website</h3>
+            <div className={styles.pricingPrice}>
+              <div className={styles.pricingSetup}>₹5,000</div>
+              <div className={styles.pricingMonthly}>Setup Fee</div>
+              <div className={styles.pricingSetup} style={{ marginTop: '1rem' }}>₹500</div>
+              <div className={styles.pricingMonthly}>Monthly</div>
+            </div>
+            <ul className={styles.pricingFeatures}>
+              <li>All core pages</li>
+              <li>Mobile responsive</li>
+              <li>Basic AI content</li>
+              <li>Hosting & maintenance</li>
             </ul>
-            <a href={whatsappLink} className={styles.planCta} target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/919006455592" className={styles.pricingCta} target="_blank" rel="noopener noreferrer">
               Get Started
             </a>
           </div>
 
           <div className={`${styles.pricingCard} ${styles.recommended}`}>
-            <h3 className={styles.planName}>Premium Website</h3>
-            <div className={styles.planSetup}>₹8,000</div>
-            <div className={styles.planMonthly}>₹1,000/month</div>
-            <ul className={styles.planFeatures}>
-              <li>Everything in standard</li>
-              <li>AI-generated visuals</li>
-              <li>Advanced SEO optimization</li>
-              <li>Custom offer pages</li>
+            <h3 className={styles.pricingTitle}>Premium Website</h3>
+            <div className={styles.pricingPrice}>
+              <div className={styles.pricingSetup}>₹8,000</div>
+              <div className={styles.pricingMonthly}>Setup Fee</div>
+              <div className={styles.pricingSetup} style={{ marginTop: '1rem' }}>₹1,000</div>
+              <div className={styles.pricingMonthly}>Monthly</div>
+            </div>
+            <ul className={styles.pricingFeatures}>
+              <li>Everything in Standard</li>
+              <li>Advanced AI content</li>
+              <li>Custom design work</li>
               <li>Priority support</li>
-              <li>Weekly updates</li>
             </ul>
-            <a href={whatsappLink} className={styles.planCta} target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/919006455592" className={styles.pricingCta} target="_blank" rel="noopener noreferrer">
               Get Started
             </a>
           </div>
         </div>
       </section>
 
-      {/* Why FlowX AI */}
-      <section className={styles.benefitsSection}>
-        <div className={styles.sectionHeader}>
-          <h2 className={styles.sectionTitle}>Why FlowX AI</h2>
-          <p className={styles.sectionSubtitle}>Built specifically for restaurants who want to scale with AI</p>
-        </div>
-
+      {/* Benefits Section */}
+      <section className={styles.benefits}>
+        <h2 className={styles.benefitsTitle}>Why FlowX AI</h2>
         <div className={styles.benefitsGrid}>
           <div className={styles.benefitCard}>
-            <Users className={styles.benefitIcon} />
-            <h3 className={styles.benefitTitle}>Restaurant Specialists</h3>
+            <div className={styles.benefitIcon}>
+              <Zap />
+            </div>
+            <h3 className={styles.benefitTitle}>Built for Restaurants</h3>
             <p className={styles.benefitDescription}>
-              We understand restaurant operations and build solutions tailored to your unique needs
+              Tailored specifically for the restaurant industry with features that address your unique needs.
             </p>
           </div>
 
           <div className={styles.benefitCard}>
-            <Clock className={styles.benefitIcon} />
+            <div className={styles.benefitIcon}>
+              <Clock />
+            </div>
             <h3 className={styles.benefitTitle}>Faster Responses</h3>
             <p className={styles.benefitDescription}>
-              AI responds instantly to customer inquiries, reducing wait times and increasing satisfaction
+              AI responds to customer inquiries instantly, 24/7, ensuring no opportunity is missed.
             </p>
           </div>
 
           <div className={styles.benefitCard}>
-            <TrendingUp className={styles.benefitIcon} />
+            <div className={styles.benefitIcon}>
+              <TrendingUp />
+            </div>
             <h3 className={styles.benefitTitle}>Increase Conversions</h3>
             <p className={styles.benefitDescription}>
-              Turn more website visitors and WhatsApp chats into confirmed orders
+              Convert more website visitors and WhatsApp conversations into actual orders.
             </p>
           </div>
 
           <div className={styles.benefitCard}>
-            <Zap className={styles.benefitIcon} />
+            <div className={styles.benefitIcon}>
+              <Users />
+            </div>
             <h3 className={styles.benefitTitle}>Reduce Workload</h3>
             <p className={styles.benefitDescription}>
-              Free up your staff from repetitive tasks to focus on delivering great food and service
+              Automate repetitive tasks so your staff can focus on providing excellent service.
             </p>
           </div>
 
           <div className={styles.benefitCard}>
-            <CheckCircle className={styles.benefitIcon} />
+            <div className={styles.benefitIcon}>
+              <CheckCircle />
+            </div>
             <h3 className={styles.benefitTitle}>Easy Onboarding</h3>
             <p className={styles.benefitDescription}>
-              Quick setup process with full training and ongoing support from our team
+              Quick setup process with full support to get your automation running in days, not months.
             </p>
           </div>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className={styles.testimonialsSection}>
-        <div className={styles.sectionHeader}>
-          <h2 className={styles.sectionTitle}>What Restaurant Owners Say</h2>
-        </div>
-
+      <section className={styles.testimonials}>
+        <h2 className={styles.testimonialsTitle}>What Restaurants Say</h2>
         <div className={styles.testimonialsGrid}>
           <div className={styles.testimonialCard}>
-            <p className={styles.testimonialQuote}>
-              "FlowX AI transformed how we handle orders. Our WhatsApp is now automated and we never miss a customer
-              inquiry, even during rush hours."
+            <div className={styles.testimonialStars}>★★★★★</div>
+            <p className={styles.testimonialText}>
+              "FlowX AI transformed how we handle orders. Our WhatsApp is now our biggest sales channel, and it runs on autopilot!"
             </p>
             <div className={styles.testimonialAuthor}>
-              <div className={styles.authorAvatar}>RK</div>
-              <div className={styles.authorInfo}>
-                <div className={styles.authorName}>Rajesh Kumar</div>
-                <div className={styles.authorRole}>Owner, Spice Garden</div>
+              <div className={styles.testimonialAvatar}>RK</div>
+              <div className={styles.testimonialInfo}>
+                <div className={styles.testimonialName}>Rajesh Kumar</div>
+                <div className={styles.testimonialRole}>Owner, Spice Junction</div>
               </div>
             </div>
           </div>
 
           <div className={styles.testimonialCard}>
-            <p className={styles.testimonialQuote}>
-              "The website they built is stunning and our online orders increased by 40% in the first month. The AI
-              integration is seamless."
+            <div className={styles.testimonialStars}>★★★★★</div>
+            <p className={styles.testimonialText}>
+              "The premium website they built looks incredible and our online orders increased by 40% in the first month."
             </p>
             <div className={styles.testimonialAuthor}>
-              <div className={styles.authorAvatar}>PS</div>
-              <div className={styles.authorInfo}>
-                <div className={styles.authorName}>Priya Sharma</div>
-                <div className={styles.authorRole}>Manager, Café Delight</div>
+              <div className={styles.testimonialAvatar}>PS</div>
+              <div className={styles.testimonialInfo}>
+                <div className={styles.testimonialName}>Priya Sharma</div>
+                <div className={styles.testimonialRole}>Manager, Café Delight</div>
               </div>
             </div>
           </div>
 
           <div className={styles.testimonialCard}>
-            <p className={styles.testimonialQuote}>
-              "Best investment we made for our restaurant. The AI handles reservations perfectly and our staff can focus
-              on what they do best."
+            <div className={styles.testimonialStars}>★★★★★</div>
+            <p className={styles.testimonialText}>
+              "Best investment we made. The AI handles customer queries perfectly and we saved hours every day."
             </p>
             <div className={styles.testimonialAuthor}>
-              <div className={styles.authorAvatar}>AM</div>
-              <div className={styles.authorInfo}>
-                <div className={styles.authorName}>Arjun Mehta</div>
-                <div className={styles.authorRole}>Owner, Tandoor House</div>
+              <div className={styles.testimonialAvatar}>AM</div>
+              <div className={styles.testimonialInfo}>
+                <div className={styles.testimonialName}>Arjun Mehta</div>
+                <div className={styles.testimonialRole}>Owner, Tandoor Express</div>
               </div>
             </div>
           </div>
@@ -387,12 +454,20 @@ export default function Home() {
       </section>
 
       {/* Final CTA */}
-      <section className={styles.finalCtaSection}>
+      <section className={styles.finalCta}>
         <div className={styles.finalCtaBackground} />
         <div className={styles.finalCtaContent}>
-          <h2 className={styles.finalCtaTitle}>Ready To Automate Your Restaurant?</h2>
-          <a href={whatsappLink} className={styles.finalCtaButton} target="_blank" rel="noopener noreferrer">
+          <h2 className={styles.finalCtaTitle}>
+            Ready to Automate Your Restaurant?
+          </h2>
+          <a 
+            href="https://wa.me/919006455592" 
+            className={styles.finalCtaButton}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Talk on WhatsApp
+            <MessageCircle size={24} />
           </a>
         </div>
       </section>
@@ -400,57 +475,43 @@ export default function Home() {
       {/* Footer */}
       <footer className={styles.footer}>
         <div className={styles.footerContent}>
-          <div className={styles.footerBrand}>
-            <div className={styles.footerLogo}>FlowX AI</div>
-            <p className={styles.footerTagline}>Automating restaurants with intelligent AI solutions</p>
-            <a href={whatsappLink} className={styles.whatsappButton} target="_blank" rel="noopener noreferrer">
-              <MessageSquare className={styles.whatsappIcon} />
-              Contact on WhatsApp
+          <div>
+            <div className={styles.footerBrand}>FlowX AI</div>
+            <p className={styles.footerDescription}>
+              AI-powered automation solutions for modern restaurants. Increase orders, reduce workload, and scale with confidence.
+            </p>
+            <a 
+              href="https://wa.me/919006455592" 
+              className={styles.footerWhatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <MessageCircle size={18} />
+              Chat on WhatsApp
             </a>
           </div>
 
           <div className={styles.footerSection}>
-            <h4 className={styles.footerTitle}>Services</h4>
-            <a href="#whatsapp-features" className={styles.footerLink}>
-              WhatsApp AI Automation
-            </a>
-            <a href="#website-features" className={styles.footerLink}>
-              Website Development
-            </a>
-            <a href="#whatsapp-pricing" className={styles.footerLink}>
-              Pricing
-            </a>
+            <h3>Services</h3>
+            <ul className={styles.footerLinks}>
+              <li><a href="#whatsapp-features">WhatsApp AI Automation</a></li>
+              <li><a href="#website-features">Website Development</a></li>
+              <li><a href="#whatsapp-pricing">Pricing</a></li>
+            </ul>
           </div>
 
           <div className={styles.footerSection}>
-            <h4 className={styles.footerTitle}>Company</h4>
-            <a href="#services" className={styles.footerLink}>
-              About Us
-            </a>
-            <a href="#whatsapp-features" className={styles.footerLink}>
-              How It Works
-            </a>
-            <a href={whatsappLink} className={styles.footerLink} target="_blank" rel="noopener noreferrer">
-              Contact
-            </a>
-          </div>
-
-          <div className={styles.footerSection}>
-            <h4 className={styles.footerTitle}>Resources</h4>
-            <a href="#whatsapp-features" className={styles.footerLink}>
-              Features
-            </a>
-            <a href="#website-features" className={styles.footerLink}>
-              Case Studies
-            </a>
-            <a href={whatsappLink} className={styles.footerLink} target="_blank" rel="noopener noreferrer">
-              Support
-            </a>
+            <h3>Company</h3>
+            <ul className={styles.footerLinks}>
+              <li><a href="#services">About Us</a></li>
+              <li><a href="#testimonials">Testimonials</a></li>
+              <li><a href="https://wa.me/919006455592" target="_blank" rel="noopener noreferrer">Contact</a></li>
+            </ul>
           </div>
         </div>
 
         <div className={styles.footerBottom}>
-          © 2024 FlowX AI. All rights reserved. Empowering restaurants with AI automation.
+          <p>&copy; 2025 FlowX AI. All rights reserved.</p>
         </div>
       </footer>
     </div>
