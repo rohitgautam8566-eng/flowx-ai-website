@@ -129,33 +129,37 @@ export default function Home() {
 
         {/* Features Grid */}
         <div className={styles.featuresGrid}>
-          <div className={styles.featureItem}>
-            <CheckCircle className={styles.featureItemIcon} size={20} />
-            <span className={styles.featureItemText}>Automatic order taking</span>
+          <div className={styles.featuresRow}>
+            <div className={styles.featureItem}>
+              <CheckCircle className={styles.featureItemIcon} size={20} />
+              <span className={styles.featureItemText}>Automatic order taking</span>
+            </div>
+            <div className={styles.featureItem}>
+              <CheckCircle className={styles.featureItemIcon} size={20} />
+              <span className={styles.featureItemText}>Table reservations</span>
+            </div>
+            <div className={styles.featureItem}>
+              <CheckCircle className={styles.featureItemIcon} size={20} />
+              <span className={styles.featureItemText}>Digital menu sharing</span>
+            </div>
+            <div className={styles.featureItem}>
+              <CheckCircle className={styles.featureItemIcon} size={20} />
+              <span className={styles.featureItemText}>FAQ automation</span>
+            </div>
           </div>
-          <div className={styles.featureItem}>
-            <CheckCircle className={styles.featureItemIcon} size={20} />
-            <span className={styles.featureItemText}>Table reservations</span>
-          </div>
-          <div className={styles.featureItem}>
-            <CheckCircle className={styles.featureItemIcon} size={20} />
-            <span className={styles.featureItemText}>Digital menu sharing</span>
-          </div>
-          <div className={styles.featureItem}>
-            <CheckCircle className={styles.featureItemIcon} size={20} />
-            <span className={styles.featureItemText}>FAQ automation</span>
-          </div>
-          <div className={styles.featureItem}>
-            <CheckCircle className={styles.featureItemIcon} size={20} />
-            <span className={styles.featureItemText}>Customer data capture</span>
-          </div>
-          <div className={styles.featureItem}>
-            <CheckCircle className={styles.featureItemIcon} size={20} />
-            <span className={styles.featureItemText}>Human handover option</span>
-          </div>
-          <div className={styles.featureItem}>
-            <CheckCircle className={styles.featureItemIcon} size={20} />
-            <span className={styles.featureItemText}>24/7 response automation</span>
+          <div className={`${styles.featuresRow} ${styles.centered}`}>
+            <div className={styles.featureItem}>
+              <CheckCircle className={styles.featureItemIcon} size={20} />
+              <span className={styles.featureItemText}>Customer data capture</span>
+            </div>
+            <div className={styles.featureItem}>
+              <CheckCircle className={styles.featureItemIcon} size={20} />
+              <span className={styles.featureItemText}>Human handover option</span>
+            </div>
+            <div className={styles.featureItem}>
+              <CheckCircle className={styles.featureItemIcon} size={20} />
+              <span className={styles.featureItemText}>24/7 response automation</span>
+            </div>
           </div>
         </div>
 
