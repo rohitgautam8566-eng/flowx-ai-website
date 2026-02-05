@@ -406,54 +406,58 @@ export default function Home() {
       <section className={styles.benefits}>
         <h2 className={styles.benefitsTitle}>Why FlowX AI</h2>
         <div className={styles.benefitsGrid}>
-          <div className={styles.benefitCard}>
-            <div className={styles.benefitIcon}>
-              <Zap />
+          <div className={styles.benefitsRow}>
+            <div className={styles.benefitCard}>
+              <div className={styles.benefitIcon}>
+                <Zap />
+              </div>
+              <h3 className={styles.benefitTitle}>Built for Restaurants</h3>
+              <p className={styles.benefitDescription}>
+                Tailored specifically for the restaurant industry with features that address your unique needs.
+              </p>
             </div>
-            <h3 className={styles.benefitTitle}>Built for Restaurants</h3>
-            <p className={styles.benefitDescription}>
-              Tailored specifically for the restaurant industry with features that address your unique needs.
-            </p>
+
+            <div className={styles.benefitCard}>
+              <div className={styles.benefitIcon}>
+                <Clock />
+              </div>
+              <h3 className={styles.benefitTitle}>Faster Responses</h3>
+              <p className={styles.benefitDescription}>
+                AI responds to customer inquiries instantly, 24/7, ensuring no opportunity is missed.
+              </p>
+            </div>
+
+            <div className={styles.benefitCard}>
+              <div className={styles.benefitIcon}>
+                <TrendingUp />
+              </div>
+              <h3 className={styles.benefitTitle}>Increase Conversions</h3>
+              <p className={styles.benefitDescription}>
+                Convert more website visitors and WhatsApp conversations into actual orders.
+              </p>
+            </div>
           </div>
 
-          <div className={styles.benefitCard}>
-            <div className={styles.benefitIcon}>
-              <Clock />
+          <div className={`${styles.benefitsRow} ${styles.centered}`}>
+            <div className={styles.benefitCard}>
+              <div className={styles.benefitIcon}>
+                <Users />
+              </div>
+              <h3 className={styles.benefitTitle}>Reduce Workload</h3>
+              <p className={styles.benefitDescription}>
+                Automate repetitive tasks so your staff can focus on providing excellent service.
+              </p>
             </div>
-            <h3 className={styles.benefitTitle}>Faster Responses</h3>
-            <p className={styles.benefitDescription}>
-              AI responds to customer inquiries instantly, 24/7, ensuring no opportunity is missed.
-            </p>
-          </div>
 
-          <div className={styles.benefitCard}>
-            <div className={styles.benefitIcon}>
-              <TrendingUp />
+            <div className={styles.benefitCard}>
+              <div className={styles.benefitIcon}>
+                <CheckCircle />
+              </div>
+              <h3 className={styles.benefitTitle}>Easy Onboarding</h3>
+              <p className={styles.benefitDescription}>
+                Quick setup process with full support to get your automation running in days, not months.
+              </p>
             </div>
-            <h3 className={styles.benefitTitle}>Increase Conversions</h3>
-            <p className={styles.benefitDescription}>
-              Convert more website visitors and WhatsApp conversations into actual orders.
-            </p>
-          </div>
-
-          <div className={styles.benefitCard}>
-            <div className={styles.benefitIcon}>
-              <Users />
-            </div>
-            <h3 className={styles.benefitTitle}>Reduce Workload</h3>
-            <p className={styles.benefitDescription}>
-              Automate repetitive tasks so your staff can focus on providing excellent service.
-            </p>
-          </div>
-
-          <div className={styles.benefitCard}>
-            <div className={styles.benefitIcon}>
-              <CheckCircle />
-            </div>
-            <h3 className={styles.benefitTitle}>Easy Onboarding</h3>
-            <p className={styles.benefitDescription}>
-              Quick setup process with full support to get your automation running in days, not months.
-            </p>
           </div>
         </div>
       </section>
