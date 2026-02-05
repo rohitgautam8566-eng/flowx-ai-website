@@ -47,14 +47,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Trust Section */}
-      <section className={styles.trust}>
-        <div className={styles.trustBadge}>
-          <Sparkles size={20} style={{ display: 'inline', marginRight: '8px', verticalAlign: 'middle' }} />
-          Built for modern restaurants ready to scale with AI
-        </div>
-      </section>
-
       {/* Services Overview */}
       <section id="services" className={styles.services}>
         <div className={styles.servicesGrid}>
