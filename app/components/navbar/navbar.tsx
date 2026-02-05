@@ -23,31 +23,8 @@ export function Navbar() {
   return (
     <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
       <nav className={styles.navContainer}>
-        {/* Logo & Brand */}
+        {/* Brand */}
         <a href="/" className={styles.brand}>
-          <div className={styles.logo}>
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-              <rect width="28" height="28" rx="6" fill="url(#logo-gradient)" />
-              <path
-                d="M14 7L19 14L14 21L9 14L14 7Z"
-                fill="white"
-                fillOpacity="0.95"
-              />
-              <defs>
-                <linearGradient
-                  id="logo-gradient"
-                  x1="0"
-                  y1="0"
-                  x2="28"
-                  y2="28"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  <stop stopColor="#8b5cf6" />
-                  <stop offset="1" stopColor="#06b6d4" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </div>
           <span className={styles.brandName}>FlowX AI</span>
         </a>
 
