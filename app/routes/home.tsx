@@ -156,7 +156,7 @@ export default function Home() {
             <div className={styles.pricingPrice}>
               <div className={styles.pricingSetup}>₹5,000</div>
               <div className={styles.pricingMonthly}>Setup Fee</div>
-              <div className={styles.pricingSetup} style={{ marginTop: '1rem' }}>₹1,500</div>
+              <div className={`${styles.pricingSetup} ${styles.pricingSetupSecondary}`}>₹1,500</div>
               <div className={styles.pricingMonthly}>Monthly</div>
             </div>
             <ul className={styles.pricingFeatures}>
@@ -175,7 +175,7 @@ export default function Home() {
             <div className={styles.pricingPrice}>
               <div className={styles.pricingSetup}>₹10,000</div>
               <div className={styles.pricingMonthly}>Setup Fee</div>
-              <div className={styles.pricingSetup} style={{ marginTop: '1rem' }}>₹2,000</div>
+              <div className={`${styles.pricingSetup} ${styles.pricingSetupSecondary}`}>₹2,000</div>
               <div className={styles.pricingMonthly}>Monthly</div>
             </div>
             <ul className={styles.pricingFeatures}>
@@ -196,7 +196,7 @@ export default function Home() {
         <h2 className={styles.deepDiveTitle}>Restaurant Website Development</h2>
 
         {/* Features Grid - Pages */}
-        <h3 style={{ fontSize: '1.75rem', fontWeight: '700', marginBottom: 'var(--space-5)', color: 'var(--color-neutral-12)' }}>
+        <h3 className={styles.sectionSubtitle}>
           Pages Included
         </h3>
         <div className={styles.featuresGrid}>
@@ -227,7 +227,7 @@ export default function Home() {
         </div>
 
         {/* Core Features */}
-        <h3 style={{ fontSize: '1.75rem', fontWeight: '700', margin: 'var(--space-8) 0 var(--space-5)', color: 'var(--color-neutral-12)' }}>
+        <h3 className={styles.sectionSubtitle}>
           Core Website Features
         </h3>
         <div className={styles.featuresGrid}>
@@ -258,7 +258,7 @@ export default function Home() {
         </div>
 
         {/* AI Enhancements */}
-        <h3 style={{ fontSize: '1.75rem', fontWeight: '700', margin: 'var(--space-8) 0 var(--space-5)', color: 'var(--color-neutral-12)' }}>
+        <h3 className={styles.sectionSubtitle}>
           AI-Powered Enhancements
         </h3>
         <div className={styles.featuresGrid}>
@@ -277,7 +277,7 @@ export default function Home() {
         </div>
 
         {/* Maintenance */}
-        <h3 style={{ fontSize: '1.75rem', fontWeight: '700', margin: 'var(--space-8) 0 var(--space-5)', color: 'var(--color-neutral-12)' }}>
+        <h3 className={styles.sectionSubtitle}>
           Maintenance & Support
         </h3>
         <div className={styles.featuresGrid}>
@@ -300,13 +300,13 @@ export default function Home() {
         </div>
 
         {/* Pricing */}
-        <div id="website-pricing" className={styles.pricingGrid} style={{ marginTop: 'var(--space-8)' }}>
+        <div id="website-pricing" className={styles.pricingGrid}>
           <div className={styles.pricingCard}>
             <h3 className={styles.pricingTitle}>Standard Website</h3>
             <div className={styles.pricingPrice}>
               <div className={styles.pricingSetup}>₹5,000</div>
               <div className={styles.pricingMonthly}>Setup Fee</div>
-              <div className={styles.pricingSetup} style={{ marginTop: '1rem' }}>₹500</div>
+              <div className={`${styles.pricingSetup} ${styles.pricingSetupSecondary}`}>₹500</div>
               <div className={styles.pricingMonthly}>Monthly</div>
             </div>
             <ul className={styles.pricingFeatures}>
@@ -325,7 +325,7 @@ export default function Home() {
             <div className={styles.pricingPrice}>
               <div className={styles.pricingSetup}>₹8,000</div>
               <div className={styles.pricingMonthly}>Setup Fee</div>
-              <div className={styles.pricingSetup} style={{ marginTop: '1rem' }}>₹1,000</div>
+              <div className={`${styles.pricingSetup} ${styles.pricingSetupSecondary}`}>₹1,000</div>
               <div className={styles.pricingMonthly}>Monthly</div>
             </div>
             <ul className={styles.pricingFeatures}>

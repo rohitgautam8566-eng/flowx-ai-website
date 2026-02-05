@@ -294,23 +294,23 @@
    ========================================== */
 
 .services {
-  padding: var(--space-9) var(--space-5);
+  padding: var(--space-8) var(--space-5);
   position: relative;
 }
 
 .servicesGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 500px), 1fr));
-  gap: var(--space-6);
-  max-width: 1200px;
+  gap: var(--space-5);
+  max-width: 1100px;
   margin: 0 auto;
 }
 
 .serviceCard {
   background: linear-gradient(135deg, rgba(139, 92, 246, 0.05), rgba(6, 182, 212, 0.05));
   border: 1px solid rgba(139, 92, 246, 0.2);
-  border-radius: var(--radius-5);
-  padding: var(--space-7);
+  border-radius: var(--radius-4);
+  padding: var(--space-6) var(--space-7);
   backdrop-filter: blur(20px);
   position: relative;
   overflow: hidden;
@@ -368,7 +368,7 @@
 }
 
 .serviceTitle {
-  font-size: 1.75rem;
+  font-size: 1.625rem;
   font-weight: 700;
   margin-bottom: var(--space-3);
   color: var(--color-neutral-12);
@@ -378,6 +378,7 @@
   color: var(--color-neutral-11);
   margin-bottom: var(--space-5);
   line-height: 1.6;
+  font-size: 0.9375rem;
 }
 
 .serviceCtas {
@@ -424,8 +425,8 @@
    ========================================== */
 
 .deepDive {
-  padding: var(--space-9) var(--space-5);
-  max-width: 1400px;
+  padding: var(--space-8) var(--space-5);
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -433,11 +434,22 @@
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 800;
   text-align: center;
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-7);
   background: linear-gradient(135deg, #ffffff, #a78bfa);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.sectionSubtitle {
+  font-size: 1.625rem;
+  font-weight: 700;
+  margin: var(--space-7) 0 var(--space-5);
+  color: var(--color-neutral-12);
+}
+
+.sectionSubtitle:first-of-type {
+  margin-top: 0;
 }
 
 /* Flow Diagram */
@@ -446,19 +458,20 @@
   align-items: center;
   justify-content: center;
   gap: var(--space-4);
-  margin: var(--space-8) 0;
+  margin: var(--space-6) 0 var(--space-7);
   flex-wrap: wrap;
 }
 
 .flowStep {
   background: rgba(139, 92, 246, 0.1);
   border: 1px solid rgba(139, 92, 246, 0.3);
-  border-radius: var(--radius-4);
-  padding: var(--space-5);
-  min-width: 150px;
+  border-radius: var(--radius-3);
+  padding: var(--space-4) var(--space-5);
+  min-width: 140px;
   text-align: center;
   backdrop-filter: blur(10px);
   animation: flowStepAppear 0.6s ease-out backwards;
+  font-size: 0.9375rem;
 }
 
 .flowStep:nth-child(1) { animation-delay: 0.1s; }
@@ -479,7 +492,7 @@
 }
 
 .flowIcon {
-  font-size: 2rem;
+  font-size: 1.875rem;
   margin-bottom: var(--space-2);
 }
 
@@ -491,20 +504,34 @@
 /* Features Grid */
 .featuresGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-  gap: var(--space-5);
-  margin: var(--space-8) 0;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+  margin: var(--space-5) 0;
+}
+
+@media (max-width: 1200px) {
+  .featuresGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .featuresGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .featureItem {
   background: rgba(6, 182, 212, 0.05);
   border: 1px solid rgba(6, 182, 212, 0.2);
-  border-radius: var(--radius-4);
-  padding: var(--space-5);
+  border-radius: var(--radius-3);
+  padding: var(--space-4);
   display: flex;
   gap: var(--space-3);
+  align-items: flex-start;
   backdrop-filter: blur(10px);
   transition: all 0.3s var(--ease-out);
+  min-height: 70px;
 }
 
 .featureItem:hover {
@@ -522,22 +549,32 @@
 
 .featureItemText {
   color: var(--color-neutral-11);
-  font-size: 1rem;
+  font-size: 0.9375rem;
+  line-height: 1.4;
 }
 
 /* Pricing Cards */
 .pricingGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
-  gap: var(--space-6);
-  margin: var(--space-8) 0;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-5);
+  margin: var(--space-7) 0;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .pricingGrid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .pricingCard {
   background: rgba(139, 92, 246, 0.05);
   border: 2px solid rgba(139, 92, 246, 0.2);
-  border-radius: var(--radius-5);
-  padding: var(--space-7);
+  border-radius: var(--radius-4);
+  padding: var(--space-6);
   position: relative;
   backdrop-filter: blur(20px);
   transition: all 0.4s var(--ease-out);
@@ -572,7 +609,7 @@
 }
 
 .pricingTitle {
-  font-size: 1.5rem;
+  font-size: 1.375rem;
   font-weight: 700;
   margin-bottom: var(--space-4);
   color: var(--color-neutral-12);
@@ -587,6 +624,10 @@
   font-weight: 800;
   color: var(--color-accent-11);
   margin-bottom: var(--space-2);
+}
+
+.pricingSetupSecondary {
+  margin-top: var(--space-4);
 }
 
 .pricingMonthly {
@@ -606,6 +647,7 @@
   display: flex;
   align-items: center;
   gap: var(--space-2);
+  font-size: 0.9375rem;
 }
 
 .pricingFeatures li::before {
@@ -636,7 +678,7 @@
    ========================================== */
 
 .benefits {
-  padding: var(--space-9) var(--space-5);
+  padding: var(--space-8) var(--space-5);
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -645,7 +687,7 @@
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 800;
   text-align: center;
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-6);
   background: linear-gradient(135deg, #ffffff, #06b6d4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -654,18 +696,26 @@
 
 .benefitsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-  gap: var(--space-6);
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+
+@media (max-width: 1024px) {
+  .benefitsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .benefitCard {
   background: rgba(6, 182, 212, 0.05);
   border: 1px solid rgba(6, 182, 212, 0.2);
-  border-radius: var(--radius-5);
-  padding: var(--space-6);
+  border-radius: var(--radius-4);
+  padding: var(--space-5);
   text-align: center;
   backdrop-filter: blur(10px);
   transition: all 0.3s var(--ease-out);
+  display: flex;
+  flex-direction: column;
 }
 
 .benefitCard:hover {
@@ -676,9 +726,9 @@
 }
 
 .benefitIcon {
-  width: 60px;
-  height: 60px;
-  margin: 0 auto var(--space-4);
+  width: 56px;
+  height: 56px;
+  margin: 0 auto var(--space-3);
   background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(139, 92, 246, 0.2));
   border-radius: var(--radius-round);
   display: flex;
@@ -686,6 +736,7 @@
   justify-content: center;
   color: var(--color-secondary-11);
   font-size: 1.5rem;
+  flex-shrink: 0;
 }
 
 .benefitCard:hover .benefitIcon {
@@ -704,7 +755,7 @@
 }
 
 .benefitTitle {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   font-weight: 700;
   margin-bottom: var(--space-2);
   color: var(--color-neutral-12);
@@ -713,6 +764,8 @@
 .benefitDescription {
   color: var(--color-neutral-11);
   line-height: 1.6;
+  font-size: 0.9375rem;
+  flex: 1;
 }
 
 /* ==========================================
@@ -720,7 +773,7 @@
    ========================================== */
 
 .testimonials {
-  padding: var(--space-9) var(--space-5);
+  padding: var(--space-8) var(--space-5);
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -729,23 +782,31 @@
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 800;
   text-align: center;
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-6);
   color: var(--color-neutral-12);
 }
 
 .testimonialsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
-  gap: var(--space-6);
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+
+@media (max-width: 1024px) {
+  .testimonialsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .testimonialCard {
   background: rgba(139, 92, 246, 0.05);
   border: 1px solid rgba(139, 92, 246, 0.2);
-  border-radius: var(--radius-5);
-  padding: var(--space-6);
+  border-radius: var(--radius-4);
+  padding: var(--space-5);
   backdrop-filter: blur(10px);
   transition: all 0.3s var(--ease-out);
+  display: flex;
+  flex-direction: column;
 }
 
 .testimonialCard:hover {
@@ -765,6 +826,8 @@
   line-height: 1.7;
   margin-bottom: var(--space-4);
   font-style: italic;
+  font-size: 0.9375rem;
+  flex: 1;
 }
 
 .testimonialAuthor {
@@ -806,7 +869,7 @@
    ========================================== */
 
 .finalCta {
-  padding: var(--space-9) var(--space-5);
+  padding: var(--space-8) var(--space-5);
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -829,7 +892,7 @@
 .finalCtaTitle {
   font-size: clamp(2rem, 6vw, 4rem);
   font-weight: 800;
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-5);
   background: linear-gradient(135deg, #ffffff, #a78bfa, #06b6d4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -898,7 +961,7 @@
 .footer {
   background: rgba(10, 0, 21, 0.8);
   border-top: 1px solid rgba(139, 92, 246, 0.2);
-  padding: var(--space-8) var(--space-5);
+  padding: var(--space-7) var(--space-5) var(--space-6);
   backdrop-filter: blur(10px);
 }
 
@@ -953,8 +1016,8 @@
 
 .footerBottom {
   max-width: 1200px;
-  margin: var(--space-7) auto 0;
-  padding-top: var(--space-6);
+  margin: var(--space-6) auto 0;
+  padding-top: var(--space-5);
   border-top: 1px solid rgba(139, 92, 246, 0.1);
   text-align: center;
   color: var(--color-neutral-10);
@@ -1013,6 +1076,18 @@
   }
   
   .footerContent {
+    grid-template-columns: 1fr;
+  }
+  
+  .featuresGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .benefitsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .testimonialsGrid {
     grid-template-columns: 1fr;
   }
 }
