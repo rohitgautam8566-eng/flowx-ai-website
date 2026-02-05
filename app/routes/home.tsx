@@ -51,6 +51,14 @@ export default function Home() {
 
       {/* Services Overview */}
       <section id="services" className={styles.services}>
+        <div className={styles.servicesIntro}>
+          <h2 className={styles.servicesIntroTitle}>
+            Our Two Core Solutions For Restaurant Growth
+          </h2>
+          <p className={styles.servicesIntroDescription}>
+            We focus on solving the two biggest problems restaurants face today — handling customer communication efficiently and building a strong online presence that converts visitors into real orders.
+          </p>
+        </div>
         <div className={styles.servicesGrid}>
           {/* WhatsApp AI Card */}
           <div className={styles.serviceCard}>
