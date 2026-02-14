@@ -1,4 +1,3 @@
-import { Link } from "react-router";
 import { MessageCircle, Mail, TrendingUp, Cpu, Clock, ShieldCheck, Phone } from "lucide-react";
 import styles from "./about.module.css";
 import { Navbar } from "~/components/navbar/navbar";
@@ -187,9 +186,9 @@ export default function AboutUs() {
             <a href="https://calendly.com/flowxai/15-min-free-discovery-call" target="_blank" className={styles.primaryBtn}>
               Book Strategy Call
             </a>
-            <Link to="/ai-websites" className={styles.secondaryBtn}>
+            <a href="https://wa.me/919006455592?text=Hi%20I%20want%20to%20see%20some%20Demo%20for%20ai%20chatbot%20/%20Website" target="_blank" rel="noopener noreferrer" className={styles.secondaryBtn}>
               Test Our AI Demo
-            </Link>
+            </a>
           </div>
           
           <p className={`${styles.whatsappSubtext} ${styles.fadeUp} ${styles.delay3}`}>
