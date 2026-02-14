@@ -64,11 +64,11 @@ export default function Home() {
               
               <h1 className={`${styles.heroTitle} animate-fade-up delay-100`}>
                 Turn Conversations Into <br className={styles.desktopBr}/>
-                <span className="text-gradient-cyan">Customers — Automatically.</span>
+                <span className="text-gradient-cyan">Revenue — Automatically.</span>
               </h1>
               
               <p className={`${styles.heroSubtitle} animate-fade-up delay-200`}>
-                We build AI-powered WhatsApp agents and high-converting websites that capture leads, confirm bookings, and increase revenue — 24/7 without extra staff.
+                We build AI-powered WhatsApp agents and high-converting websites that capture leads, confirm bookings, and increase revenue — 24/7 without hiring more staff.
               </p>
               
               <div className={`${styles.heroButtons} animate-fade-up delay-300`}>
@@ -84,7 +84,7 @@ export default function Home() {
                   to="/whatsapp-ai-agent"
                   className={styles.secondaryBtn}
                 >
-                  See How It Works
+                  Explore Our Systems
                 </Link>
               </div>
             </div>
@@ -101,7 +101,7 @@ export default function Home() {
                       <span className={styles.wfLabel}>Customer</span>
                     </div>
 
-                    {/* WhatsApp (Desktop Only) */}
+                    {/* Channel (WhatsApp/Web) */}
                     <div className={`${styles.wfNode} ${styles.desktopNode}`}>
                       <div className={styles.wfIcon}><MessageSquare size={20} /></div>
                       <span className={styles.wfLabel}>WhatsApp</span>
@@ -141,15 +141,15 @@ export default function Home() {
               <div className={styles.problemList}>
                 <div className={styles.problemItem}>
                   <div className={styles.problemDot} />
-                  <p>Missed WhatsApp messages mean lost revenue.</p>
+                  <p>Missed WhatsApp messages = lost revenue</p>
                 </div>
                 <div className={styles.problemItem}>
                   <div className={styles.problemDot} />
-                  <p>Late replies send customers to competitors.</p>
+                  <p>Slow replies send customers to competitors</p>
                 </div>
                 <div className={styles.problemItem}>
                   <div className={styles.problemDot} />
-                  <p>Staff overwhelmed by repetitive questions.</p>
+                  <p>Staff overwhelmed with repetitive questions</p>
                 </div>
               </div>
             </div>
@@ -177,7 +177,6 @@ export default function Home() {
                     <span className={styles.notifTime}>10m ago • Waiting for confirm</span>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
@@ -188,7 +187,8 @@ export default function Home() {
       <section className={styles.systemsSection}>
         <div className={styles.container}>
           <div className={styles.sectionHeader}>
-            <h2 className={styles.sectionTitle}>Built for Growth. <br className="mobile-only" />Designed for <span className="text-gradient-blue">Conversion.</span></h2>
+            <h2 className={styles.sectionTitle}>Two AI Systems. <br className="mobile-only" /><span className="text-gradient-blue">One Growth Engine.</span></h2>
+            <p className={styles.sectionDesc}>We don’t sell tools. We build revenue systems designed to scale your business automatically.</p>
           </div>
           
           <div className={styles.systemsGrid}>
@@ -202,17 +202,16 @@ export default function Home() {
                 <h3>WhatsApp AI Agent</h3>
               </div>
               <p className={styles.cardDesc}>
-                24/7 AI assistant that handles bookings, inquiries, follow-ups, and confirmations automatically.
+                24/7 AI assistant that handles inquiries, bookings, follow-ups, and confirmations automatically.
               </p>
               <ul className={styles.cardBullets}>
                 <li><CheckCircle size={16} /> Instant Replies</li>
                 <li><CheckCircle size={16} /> Lead Qualification</li>
                 <li><CheckCircle size={16} /> Order Confirmation</li>
                 <li><CheckCircle size={16} /> FAQ Automation</li>
-                <li><CheckCircle size={16} /> Human Handover</li>
               </ul>
               <Link to="/whatsapp-ai-agent" className={styles.cardLink}>
-                Learn more <ArrowRight size={16} />
+                Learn More <ArrowRight size={16} />
               </Link>
             </div>
 
@@ -226,17 +225,16 @@ export default function Home() {
                 <h3>AI Websites</h3>
               </div>
               <p className={styles.cardDesc}>
-                High-converting AI-powered websites designed to turn visitors into paying customers.
+                High-converting AI-powered websites designed to capture, nurture, and convert visitors into customers.
               </p>
               <ul className={styles.cardBullets}>
                 <li><CheckCircle size={16} /> Conversion-focused layout</li>
                 <li><CheckCircle size={16} /> WhatsApp integration</li>
                 <li><CheckCircle size={16} /> Automated lead capture</li>
                 <li><CheckCircle size={16} /> Mobile-first design</li>
-                <li><CheckCircle size={16} /> Performance optimized</li>
               </ul>
               <Link to="/ai-websites" className={styles.cardLink}>
-                Learn more <ArrowRight size={16} />
+                Learn More <ArrowRight size={16} />
               </Link>
             </div>
           </div>
@@ -288,7 +286,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section 5: Why FlowX */}
+      {/* Section 5: Authority */}
       <section className={styles.whySection}>
         <div className={styles.container}>
           <div className={styles.sectionHeader}>
@@ -316,7 +314,37 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section 6: Final CTA */}
+      {/* Section 6: Agency Positioning (NEW) */}
+      <section className={styles.agencySection}>
+        <div className={styles.container}>
+          <div className={`${styles.agencyCard} ${styles.reveal} animate-fade-up`}>
+            <div className={styles.agencyContent}>
+              <h2 className={styles.agencyTitle}>Your AI Growth Partner — <span className="text-gradient-cyan">Not Just a Service Provider.</span></h2>
+              <p className={styles.agencyText}>
+                FlowX AI helps restaurants and local businesses automate customer conversations, capture more leads, and scale revenue without increasing workload.
+              </p>
+              <div className={styles.founderNote}>
+                <p>Founded by <strong>Rohit Gautam</strong> & <strong>Roshan Dev</strong>.</p>
+              </div>
+              <Link to="/about" className={styles.agencyBtn}>
+                Meet the Founders <ArrowRight size={18} />
+              </Link>
+            </div>
+            <div className={styles.foundersVisual}>
+               <div className={styles.founderImageWrapper}>
+                  <img src="/founders/rohit.webp" alt="Rohit Gautam" className={styles.founderImg} />
+                  <div className={styles.founderNameTag}>Rohit</div>
+               </div>
+               <div className={styles.founderImageWrapper}>
+                  <img src="/founders/roshan.png" alt="Roshan Dev" className={styles.founderImg} />
+                  <div className={styles.founderNameTag}>Roshan</div>
+               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 7: Final CTA */}
       <section className={styles.finalCta}>
         <div className={styles.glowBlob} style={{ left: '50%', top: '50%', transform: 'translate(-50%, -50%)', opacity: 0.15 }} />
         <div className={styles.container}>
