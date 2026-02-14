@@ -136,19 +136,74 @@ export default function WhatsAppAgentPage() {
         <div className={styles.container}>
           <div className={`${styles.founderContent} ${styles.reveal}`}>
             <h2>Built By Founders Who Understand Growth.</h2>
-            <p className={styles.founderQuote}>"We don’t build chatbots. We build revenue systems."</p>
+            <p className={styles.founderSubtext}>We design AI systems that help restaurants and local businesses grow without increasing manual workload.</p>
             
             <div className={styles.founderGrid}>
+              
+              {/* Rohit */}
               <div className={styles.founderCard}>
-                <div className={styles.avatarPlaceholder}>RG</div>
-                <h3>Rohit Gautam</h3>
-                <span>Co-Founder, FlowX AI</span>
+                <div className={styles.founderImageWrapper}>
+                  <img src="/founders/rohit.webp" alt="Rohit Gautam" className={styles.founderImage} />
+                  <div className={styles.founderGlow} />
+                </div>
+                <div className={styles.founderInfo}>
+                  <h3>Rohit Gautam</h3>
+                  <div className={styles.founderRole}>
+                    <span>Co-Founder, FlowX AI</span>
+                    <span className={styles.separator}>•</span>
+                    <span>AI Growth Strategist</span>
+                  </div>
+                  <p className={styles.founderBio}>
+                    I work closely with business owners to turn conversations into conversions.
+                  </p>
+                  <ul className={styles.founderList}>
+                    <li>AI-powered WhatsApp automation</li>
+                    <li>Lead capture & follow-up systems</li>
+                    <li>Conversion-focused growth strategy</li>
+                  </ul>
+                  <div className={styles.founderActions}>
+                    <a href="https://wa.me/918576066041" className={styles.whatsappBtn}>
+                      👉 Message Rohit on WhatsApp
+                    </a>
+                    <a href="/about" className={styles.moreBtn}>
+                      👉 Know More About Us <ArrowRight size={16} />
+                    </a>
+                  </div>
+                </div>
               </div>
+
+              {/* Roshan */}
               <div className={styles.founderCard}>
-                <div className={styles.avatarPlaceholder}>RD</div>
-                <h3>Roshan Dev</h3>
-                <span>Co-Founder, FlowX AI</span>
+                <div className={styles.founderImageWrapper}>
+                  <img src="/founders/roshan.png" alt="Roshan Dev" className={styles.founderImage} />
+                  <div className={styles.founderGlow} />
+                </div>
+                <div className={styles.founderInfo}>
+                  <h3>Roshan Dev</h3>
+                  <div className={styles.founderRole}>
+                    <span>Co-Founder, FlowX AI</span>
+                    <span className={styles.separator}>•</span>
+                    <span>Systems Architect</span>
+                  </div>
+                  <p className={styles.founderBio}>
+                    I build the backend systems that power automation, performance, and scalability.
+                  </p>
+                  <ul className={styles.founderList}>
+                    <li>Workflow automation architecture</li>
+                    <li>AI integration & infrastructure</li>
+                    <li>Performance-driven digital systems</li>
+                  </ul>
+                  <div className={styles.founderActions}>
+                    <a href="https://wa.me/919006455592" className={styles.whatsappBtn}>
+                      👉 Message Roshan on WhatsApp
+                    </a>
+                    <a href="/about" className={styles.moreBtn}>
+                      👉 View Our Story <ArrowRight size={16} />
+                    </a>
+                  </div>
+                </div>
               </div>
+
             </div>
           </div>
         </div>

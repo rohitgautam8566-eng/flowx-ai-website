@@ -302,60 +302,194 @@
 
 /* FOUNDERS */
 .founders {
-  padding: 6rem 0;
-  text-align: center;
+  padding: 8rem 0;
+  background: linear-gradient(180deg, rgba(5, 8, 22, 0) 0%, rgba(5, 8, 22, 0.5) 100%);
+}
+
+.founderContent {
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .founderContent h2 {
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
+  text-align: center;
   margin-bottom: 1rem;
+  background: linear-gradient(90deg, #fff, #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.founderQuote {
-  font-size: 1.25rem;
-  color: var(--color-accent-primary);
-  margin-bottom: 3rem;
-  font-style: italic;
+.founderSubtext {
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 4rem;
+  line-height: 1.6;
 }
 
 .founderGrid {
-  display: flex;
-  justify-content: center;
-  gap: 3rem;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
 }
 
 .founderCard {
-  background: rgba(255, 255, 255, 0.03);
-  padding: 2rem;
-  border-radius: var(--radius-xl);
+  background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  width: 280px;
+  border-radius: 24px;
+  padding: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
 }
 
-.avatarPlaceholder {
-  width: 100px;
-  height: 100px;
-  background: linear-gradient(135deg, #1e3a8a, #3b82f6);
-  border-radius: 50%;
-  margin: 0 auto 1.5rem;
+.founderCard:hover {
+  transform: translateY(-5px) scale(1.01);
+  border-color: rgba(59, 130, 246, 0.3);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+}
+
+.founderImageWrapper {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.founderImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.founderCard:hover .founderImage {
+  transform: scale(1.05);
+}
+
+.founderGlow {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, #0f172a 0%, transparent 100%);
+}
+
+.founderInfo {
+  padding: 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.founderInfo h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.founderRole {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.separator {
+  color: #334155;
+}
+
+.founderBio {
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+.founderList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.founderList li {
+  position: relative;
+  padding-left: 1.5rem;
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+.founderList li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #3b82f6;
+  font-weight: bold;
+}
+
+.founderActions {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.whatsappBtn {
+  background: rgba(37, 211, 102, 0.1);
+  color: #25d366;
+  border: 1px solid rgba(37, 211, 102, 0.2);
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.whatsappBtn:hover {
+  background: rgba(37, 211, 102, 0.2);
+  transform: translateY(-2px);
+}
+
+.moreBtn {
+  background: transparent;
+  color: #94a3b8;
+  padding: 0.8rem 1rem;
+  text-decoration: none;
+  font-size: 0.9rem;
+  text-align: center;
+  transition: all 0.2s;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
-  font-weight: bold;
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  gap: 0.5rem;
 }
 
-.founderCard h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
+.moreBtn:hover {
+  color: #fff;
 }
 
-.founderCard span {
-  color: var(--color-text-secondary);
-  font-size: 0.9rem;
+@media (max-width: 768px) {
+  .founderGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .founderImageWrapper {
+    height: 250px;
+  }
 }
 
 /* CTA */
