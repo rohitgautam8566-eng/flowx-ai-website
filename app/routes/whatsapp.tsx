@@ -38,7 +38,7 @@ export default function WhatsAppAgentPage() {
               24/7 AI system that handles inquiries, confirms orders, captures leads, and follows up automatically.
             </p>
             <div className={styles.heroButtons}>
-              <a href="#book" className={styles.primaryBtn}>
+              <a href="https://calendly.com/flowxai/15-min-free-discovery-call" target="_blank" className={styles.primaryBtn}>
                 Book Strategy Call <ArrowRight size={18} />
               </a>
               <a href="#demo" className={styles.secondaryBtn}>
@@ -215,7 +215,7 @@ export default function WhatsAppAgentPage() {
                     <li>Performance-driven digital systems</li>
                   </ul>
                   <div className={styles.founderActions}>
-                    <a href="https://wa.me/919006455592" className={styles.whatsappBtn}>
+                    <a href="https://wa.me/919006455592?text=Hi%20I%20am%20interested%20in%20your%20AI%20automation%20services" target="_blank" className={styles.whatsappBtn}>
                       👉 Message Roshan on WhatsApp
                     </a>
                     <a href="/about" className={styles.moreBtn}>
@@ -236,10 +236,10 @@ export default function WhatsAppAgentPage() {
           <h2>Still Handling Orders Manually?</h2>
           <p>Doing nothing is also a decision.</p>
           <div className={styles.ctaButtons}>
-            <a href="https://wa.me/1234567890?text=YES" className={styles.primaryBtnLarge}>
+            <a href="https://wa.me/919006455592?text=Hi%20I%20am%20interested%20in%20your%20AI%20automation%20services" target="_blank" className={styles.primaryBtnLarge}>
               Message us on WhatsApp
             </a>
-            <a href="#call" className={styles.secondaryBtnLarge}>
+            <a href="https://calendly.com/flowxai/15-min-free-discovery-call" target="_blank" className={styles.secondaryBtnLarge}>
               Book Strategy Call
             </a>
           </div>
@@ -248,7 +248,7 @@ export default function WhatsAppAgentPage() {
             <span>•</span>
             <a href="#">Instagram</a>
             <span>•</span>
-            <a href="#">WhatsApp</a>
+            <a href="https://wa.me/919006455592?text=Hi%20I%20am%20interested%20in%20your%20AI%20automation%20services" target="_blank">WhatsApp</a>
           </div>
         </div>
       </section>

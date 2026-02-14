@@ -35,7 +35,7 @@ export default function AIWebsitesPage() {
               AI-optimized high-converting websites designed to turn visitors into paying customers.
             </p>
             <div className={styles.heroButtons}>
-              <a href="#book" className={styles.primaryBtn}>
+              <a href="https://calendly.com/flowxai/15-min-free-discovery-call" target="_blank" className={styles.primaryBtn}>
                 Book Website Strategy Call <ArrowRight size={18} />
               </a>
             </div>
@@ -136,10 +136,10 @@ export default function AIWebsitesPage() {
         <div className={`${styles.ctaContent} ${styles.reveal}`}>
           <h2>Ready To Build Your <br/><span className={styles.gradientText}>AI Growth Engine?</span></h2>
           <div className={styles.ctaButtons}>
-            <a href="#call" className={styles.primaryBtnLarge}>
+            <a href="https://calendly.com/flowxai/15-min-free-discovery-call" target="_blank" className={styles.primaryBtnLarge}>
               Book Strategy Call
             </a>
-            <a href="https://wa.me/1234567890" className={styles.secondaryBtnLarge}>
+            <a href="https://wa.me/919006455592?text=Hi%20I%20am%20interested%20in%20your%20AI%20automation%20services" target="_blank" className={styles.secondaryBtnLarge}>
               Message Us On WhatsApp
             </a>
           </div>

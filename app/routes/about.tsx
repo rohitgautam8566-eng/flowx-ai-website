@@ -103,7 +103,7 @@ export default function AboutUs() {
               </div>
             </div>
 
-            <a href="https://wa.me/919006455592" target="_blank" rel="noopener noreferrer" className={styles.ctaButton}>
+            <a href="https://wa.me/919006455592?text=Hi%20I%20am%20interested%20in%20your%20AI%20automation%20services" target="_blank" rel="noopener noreferrer" className={styles.ctaButton}>
               <MessageCircle size={20} />
               Message Roshan on WhatsApp
             </a>
@@ -184,7 +184,7 @@ export default function AboutUs() {
           </p>
 
           <div className={`${styles.buttonGroup} ${styles.fadeUp} ${styles.delay2}`}>
-            <a href="mailto:flowx.ai.in@gmail.com" className={styles.primaryBtn}>
+            <a href="https://calendly.com/flowxai/15-min-free-discovery-call" target="_blank" className={styles.primaryBtn}>
               Book Strategy Call
             </a>
             <Link to="/ai-websites" className={styles.secondaryBtn}>

@@ -44,7 +44,7 @@ export function Navbar() {
               {link.name}
             </Link>
           ))}
-          <a href="#contact" className={styles.ctaButton}>
+          <a href="https://calendly.com/flowxai/15-min-free-discovery-call" target="_blank" className={styles.ctaButton}>
             Book Strategy Call
           </a>
         </div>
@@ -71,7 +71,7 @@ export function Navbar() {
                 {link.name}
               </Link>
             ))}
-            <a href="#contact" className={styles.mobileCtaButton} onClick={() => setIsOpen(false)}>
+            <a href="https://calendly.com/flowxai/15-min-free-discovery-call" target="_blank" className={styles.mobileCtaButton} onClick={() => setIsOpen(false)}>
               Book Strategy Call <ArrowRight size={16} />
             </a>
           </div>
