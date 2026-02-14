@@ -1,10 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import styles from "./home.module.css";
 import { Navbar } from "../components/navbar/navbar";
-import { ArrowRight, Bot, MessageSquare, CheckCircle, Smartphone, Database, Bell, Zap, TrendingUp, Clock, Globe } from "lucide-react";
+import { ArrowRight, Bot, MessageSquare, CheckCircle, Smartphone, Zap, Clock, TrendingUp, Users, Globe, ChevronRight, Play } from "lucide-react";
 import { Link } from "react-router";
 
 export default function Home() {
+  const heroRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -31,12 +32,23 @@ export default function Home() {
       }
     }, { threshold: 0.1 });
 
-    const heroSection = document.getElementById('hero-section');
-    if (heroSection) ctaObserver.observe(heroSection);
+    if (heroRef.current) ctaObserver.observe(heroRef.current);
+
+    // Parallax effect
+    const handleScroll = () => {
+      const scrolled = window.scrollY;
+      const visual = document.getElementById('hero-visual');
+      if (visual) {
+        visual.style.transform = `translateY(${scrolled * 0.1}px) rotateX(${scrolled * 0.02}deg)`;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
       observer.disconnect();
       ctaObserver.disconnect();
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -45,30 +57,31 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section */}
-      <section id="hero-section" className={styles.hero}>
+      <section ref={heroRef} id="hero-section" className={styles.hero}>
         <div className={styles.heroBackground}>
            <div className={styles.blobContainer}>
-             <div className={`${styles.blob} ${styles.blobCyan}`} />
-             <div className={`${styles.blob} ${styles.blobBlue}`} />
+             <div className={`${styles.blob} ${styles.blobGold}`} />
+             <div className={`${styles.blob} ${styles.blobBronze}`} />
            </div>
            <div className={styles.gridOverlay} />
+           <div className={styles.particles} />
         </div>
         
         <div className={styles.container}>
           <div className={styles.heroLayout}>
             {/* Left Content */}
             <div className={styles.heroContent}>
-              <div className={`${styles.badge} animate-fade-up`}>
-                <span>✨ AI Growth Systems for Restaurants & Local Businesses</span>
-              </div>
-              
-              <h1 className={`${styles.heroTitle} animate-fade-up delay-100`}>
-                Turn Conversations Into <br className={styles.desktopBr}/>
-                <span className="text-gradient-cyan">Revenue — Automatically.</span>
+              <h1 className={`${styles.heroTitle} animate-fade-up`}>
+                Don’t Just Automate. <br />
+                <span className="text-gradient-gold">Build a Revenue Engine.</span>
               </h1>
               
-              <p className={`${styles.heroSubtitle} animate-fade-up delay-200`}>
-                We build AI-powered WhatsApp agents and high-converting websites that capture leads, confirm bookings, and increase revenue — 24/7 without hiring more staff.
+              <p className={`${styles.heroSubtitle} animate-fade-up delay-100`}>
+                FlowX AI builds intelligent WhatsApp agents and high-converting AI websites that turn conversations into confirmed customers — 24/7.
+              </p>
+
+              <p className={`${styles.heroEmotional} animate-fade-up delay-200`}>
+                While others are replying manually… your system should already be closing deals.
               </p>
               
               <div className={`${styles.heroButtons} animate-fade-up delay-300`}>
@@ -78,7 +91,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className={styles.primaryBtn}
                 >
-                  Book Strategy Call <ArrowRight size={18} />
+                  Book Growth Strategy Call <ArrowRight size={18} />
                 </a>
                 <Link 
                   to="/whatsapp-ai-agent"
@@ -89,42 +102,55 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right Visual */}
-            <div className={`${styles.heroVisual} animate-fade-up delay-500`}>
-               <div className={styles.visualGlassPanel}>
-                  <div className={styles.workflowSystem}>
-                    <div className={styles.workflowLine} />
-                    
-                    {/* Customer */}
-                    <div className={styles.wfNode}>
-                      <div className={styles.wfIcon}><Smartphone size={20} /></div>
-                      <span className={styles.wfLabel}>Customer</span>
-                    </div>
+            {/* Right Visual - High Detail Split */}
+            <div id="hero-visual" className={`${styles.heroVisual} animate-fade-up delay-500`}>
+               <div className={styles.visualContainer}>
+                  {/* Connection Line */}
+                  <div className={styles.connectionLine} />
 
-                    {/* Channel (WhatsApp/Web) */}
-                    <div className={`${styles.wfNode} ${styles.desktopNode}`}>
-                      <div className={styles.wfIcon}><MessageSquare size={20} /></div>
-                      <span className={styles.wfLabel}>WhatsApp</span>
+                  {/* Left: Chat Sim */}
+                  <div className={styles.chatCard}>
+                    <div className={styles.chatHeader}>
+                      <div className={styles.chatAvatar}>
+                        <Bot size={16} />
+                      </div>
+                      <div className={styles.chatInfo}>
+                        <div className={styles.chatName}>FlowX Agent</div>
+                        <div className={styles.chatStatus}>Online</div>
+                      </div>
                     </div>
+                    <div className={styles.chatBody}>
+                      <div className={`${styles.msg} ${styles.msgIn}`}>
+                        <div className={styles.typingDots}>
+                          <span></span><span></span><span></span>
+                        </div>
+                      </div>
+                      <div className={`${styles.msg} ${styles.msgOut}`}>
+                        Is a table available for 7pm?
+                      </div>
+                      <div className={`${styles.msg} ${styles.msgIn} ${styles.msgConfirm}`}>
+                        Yes! I have confirmed your table for 7pm. <CheckCircle size={12} className={styles.checkIcon} />
+                      </div>
+                    </div>
+                  </div>
 
-                    {/* AI Agent (Main) */}
-                    <div className={`${styles.wfNode} ${styles.activeNode}`}>
-                      <div className={styles.wfIcon}><Bot size={24} /></div>
-                      <span className={styles.wfLabel}>AI Agent</span>
-                      <div className={styles.pulseRing} />
+                  {/* Right: Web Sim */}
+                  <div className={styles.webCard}>
+                    <div className={styles.browserHeader}>
+                      <div className={styles.browserDots}>
+                        <span /><span /><span />
+                      </div>
                     </div>
-
-                     {/* CRM (Desktop Only) */}
-                    <div className={`${styles.wfNode} ${styles.desktopNode}`}>
-                      <div className={styles.wfIcon}><Database size={20} /></div>
-                      <span className={styles.wfLabel}>CRM</span>
+                    <div className={styles.webContent}>
+                      <div className={styles.webHero} />
+                      <div className={styles.webGrid}>
+                        <div className={styles.webItem} />
+                        <div className={styles.webItem} />
+                        <div className={styles.webItem} />
+                      </div>
+                      <div className={styles.webBtn} />
                     </div>
-
-                    {/* Order Confirmed */}
-                    <div className={styles.wfNode}>
-                      <div className={styles.wfIcon}><CheckCircle size={20} /></div>
-                      <span className={styles.wfLabel}>Confirmed</span>
-                    </div>
+                    <div className={styles.scanLine} />
                   </div>
                </div>
             </div>
@@ -132,229 +158,190 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section 2: The Problem */}
-      <section className={styles.problemSection}>
+      {/* Pain Section */}
+      <section className={styles.painSection}>
         <div className={styles.container}>
-          <div className={styles.problemLayout}>
-            <div className={`${styles.problemContent} ${styles.reveal} animate-fade-up`}>
-              <h2 className={styles.sectionTitle}>Still Losing Customers <span className="text-gradient-accent">Every Day?</span></h2>
-              <div className={styles.problemList}>
-                <div className={styles.problemItem}>
-                  <div className={styles.problemDot} />
-                  <p>Missed WhatsApp messages = lost revenue</p>
-                </div>
-                <div className={styles.problemItem}>
-                  <div className={styles.problemDot} />
-                  <p>Slow replies send customers to competitors</p>
-                </div>
-                <div className={styles.problemItem}>
-                  <div className={styles.problemDot} />
-                  <p>Staff overwhelmed with repetitive questions</p>
-                </div>
-              </div>
+          <div className={`${styles.painHeader} ${styles.reveal} animate-fade-up`}>
+            <h2 className={styles.sectionTitle}>How Much Revenue Are You Losing <span className="text-gradient-gold">Every Week?</span></h2>
+            <p className={styles.sectionDesc}>
+              Missed messages. Slow replies. Manual follow-ups. Overworked staff. <br className={styles.desktopBr} />
+              <span className={styles.highlight}>Your competitors are already automating.</span>
+            </p>
+          </div>
+
+          <div className={styles.notificationRow}>
+            <div className={`${styles.notifCard} ${styles.reveal} animate-fade-up`}>
+               <div className={styles.notifIcon}><MessageSquare size={18} /></div>
+               <div className={styles.notifContent}>
+                 <div className={styles.notifTitle}>New Inquiry</div>
+                 <div className={styles.notifMeta}>Received 2m ago</div>
+               </div>
             </div>
-            
-            <div className={`${styles.problemVisual} ${styles.reveal} animate-fade-up delay-200`}>
-              <div className={styles.notificationStack}>
-                <div className={`${styles.notification} ${styles.notif1}`}>
-                  <div className={styles.notifIcon}><Bell size={16} /></div>
-                  <div className={styles.notifText}>
-                    <span className={styles.notifTitle}>Missed Call</span>
-                    <span className={styles.notifTime}>2m ago • Potential Customer</span>
-                  </div>
-                </div>
-                <div className={`${styles.notification} ${styles.notif2}`}>
-                  <div className={styles.notifIcon}><MessageSquare size={16} /></div>
-                  <div className={styles.notifText}>
-                    <span className={styles.notifTitle}>New Inquiry</span>
-                    <span className={styles.notifTime}>5m ago • "Do you have tables?"</span>
-                  </div>
-                </div>
-                <div className={`${styles.notification} ${styles.notif3}`}>
-                  <div className={styles.notifIcon}><CheckCircle size={16} /></div>
-                  <div className={styles.notifText}>
-                    <span className={styles.notifTitle}>Order Pending</span>
-                    <span className={styles.notifTime}>10m ago • Waiting for confirm</span>
-                  </div>
-                </div>
-              </div>
+            <div className={`${styles.notifCard} ${styles.reveal} animate-fade-up delay-100`}>
+               <div className={styles.notifIcon}><Smartphone size={18} /></div>
+               <div className={styles.notifContent}>
+                 <div className={styles.notifTitle}>Missed Call</div>
+                 <div className={styles.notifMeta}>Failed to connect</div>
+               </div>
+            </div>
+            <div className={`${styles.notifCard} ${styles.reveal} animate-fade-up delay-200`}>
+               <div className={styles.notifIcon}><Users size={18} /></div>
+               <div className={styles.notifContent}>
+                 <div className={styles.notifTitle}>Customer Left Chat</div>
+                 <div className={styles.notifMeta}>No response in 5m</div>
+               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Section 3: Two AI Systems */}
-      <section className={styles.systemsSection}>
+      {/* Services Preview */}
+      <section className={styles.servicesSection}>
         <div className={styles.container}>
           <div className={styles.sectionHeader}>
-            <h2 className={styles.sectionTitle}>Two AI Systems. <br className="mobile-only" /><span className="text-gradient-blue">One Growth Engine.</span></h2>
-            <p className={styles.sectionDesc}>We don’t sell tools. We build revenue systems designed to scale your business automatically.</p>
+            <h2 className={styles.sectionTitle}>Two Systems. <br className="mobile-only" /><span className="text-gradient-gold">One Growth Strategy.</span></h2>
+            <p className={styles.sectionDesc}>We design automation systems that work silently in the background — generating leads, confirming bookings, and increasing revenue.</p>
           </div>
           
-          <div className={styles.systemsGrid}>
+          <div className={styles.servicesGrid}>
             {/* Card 1 */}
-            <div className={`${styles.systemCard} ${styles.reveal} animate-fade-up`}>
-              <div className={styles.cardGlow} />
+            <div className={`${styles.serviceCard} ${styles.reveal} animate-fade-up`}>
               <div className={styles.cardHeader}>
-                <div className={styles.cardIconWrapper}>
-                  <MessageSquare size={32} />
-                </div>
-                <h3>WhatsApp AI Agent</h3>
+                <h3>WhatsApp AI Growth Agent</h3>
+                <div className={styles.cardIcon}><Bot size={24} /></div>
               </div>
-              <p className={styles.cardDesc}>
-                24/7 AI assistant that handles inquiries, bookings, follow-ups, and confirmations automatically.
+              <p className={styles.cardCopy}>
+                An intelligent assistant that replies instantly, qualifies leads, confirms bookings, and follows up automatically.
               </p>
+              <div className={styles.miniWorkflow}>
+                 <div className={styles.mwNode}><MessageSquare size={14} /></div>
+                 <div className={styles.mwLine} />
+                 <div className={styles.mwNode}><Bot size={14} /></div>
+                 <div className={styles.mwLine} />
+                 <div className={styles.mwNode}><CheckCircle size={14} /></div>
+              </div>
               <ul className={styles.cardBullets}>
-                <li><CheckCircle size={16} /> Instant Replies</li>
-                <li><CheckCircle size={16} /> Lead Qualification</li>
-                <li><CheckCircle size={16} /> Order Confirmation</li>
-                <li><CheckCircle size={16} /> FAQ Automation</li>
+                <li><CheckCircle size={16} /> Instant smart replies</li>
+                <li><CheckCircle size={16} /> Automated booking confirmations</li>
+                <li><CheckCircle size={16} /> FAQ & menu handling</li>
+                <li><CheckCircle size={16} /> 24/7 availability</li>
               </ul>
               <Link to="/whatsapp-ai-agent" className={styles.cardLink}>
-                Learn More <ArrowRight size={16} />
+                Explore Agent <ArrowRight size={16} />
               </Link>
             </div>
 
             {/* Card 2 */}
-            <div className={`${styles.systemCard} ${styles.reveal} animate-fade-up delay-200`}>
-              <div className={styles.cardGlow} />
+            <div className={`${styles.serviceCard} ${styles.reveal} animate-fade-up delay-200`}>
               <div className={styles.cardHeader}>
-                <div className={styles.cardIconWrapper}>
-                  <Globe size={32} />
-                </div>
-                <h3>AI Websites</h3>
+                <h3>AI-Powered Conversion Websites</h3>
+                <div className={styles.cardIcon}><Globe size={24} /></div>
               </div>
-              <p className={styles.cardDesc}>
-                High-converting AI-powered websites designed to capture, nurture, and convert visitors into customers.
+              <p className={styles.cardCopy}>
+                High-performing websites engineered to capture attention, build trust, and convert visitors into paying customers.
               </p>
+              <div className={styles.miniBrowser}>
+                <div className={styles.mbBar} />
+                <div className={styles.mbContent} />
+              </div>
               <ul className={styles.cardBullets}>
-                <li><CheckCircle size={16} /> Conversion-focused layout</li>
+                <li><CheckCircle size={16} /> Conversion-optimized design</li>
                 <li><CheckCircle size={16} /> WhatsApp integration</li>
-                <li><CheckCircle size={16} /> Automated lead capture</li>
-                <li><CheckCircle size={16} /> Mobile-first design</li>
+                <li><CheckCircle size={16} /> Smart lead capture</li>
+                <li><CheckCircle size={16} /> AI-enhanced copywriting</li>
               </ul>
               <Link to="/ai-websites" className={styles.cardLink}>
-                Learn More <ArrowRight size={16} />
+                Explore Websites <ArrowRight size={16} />
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Section 4: How It Works */}
+      {/* How It Works */}
       <section className={styles.howSection}>
         <div className={styles.container}>
-          <div className={styles.sectionHeader}>
-            <h2 className={styles.sectionTitle}>From First Message to <br className="mobile-only" /><span className="text-gradient-accent">Confirmed Order.</span></h2>
-          </div>
-
           <div className={styles.timeline}>
             <div className={styles.timelineLine} />
             
             <div className={`${styles.timelineStep} ${styles.reveal} animate-fade-up`}>
-              <div className={styles.stepNumber}>1</div>
-              <div className={styles.stepContent}>
-                <h3>Customer Sends Message</h3>
-                <p>Inquiry via WhatsApp or Website.</p>
+              <div className={styles.stepCircle}>
+                <Users size={20} />
               </div>
+              <h3>Visitor / Customer</h3>
             </div>
 
             <div className={`${styles.timelineStep} ${styles.reveal} animate-fade-up delay-100`}>
-              <div className={styles.stepNumber}>2</div>
-              <div className={styles.stepContent}>
-                <h3>AI Responds Instantly</h3>
-                <p>Zero wait time, 24/7 availability.</p>
+              <div className={styles.stepCircle}>
+                <Bot size={20} />
               </div>
+              <h3>AI System</h3>
             </div>
 
             <div className={`${styles.timelineStep} ${styles.reveal} animate-fade-up delay-200`}>
-              <div className={styles.stepNumber}>3</div>
-              <div className={styles.stepContent}>
-                <h3>Lead Gets Qualified</h3>
-                <p>AI collects details & preferences.</p>
+              <div className={styles.stepCircle}>
+                <Zap size={20} />
               </div>
+              <h3>Automation</h3>
             </div>
 
             <div className={`${styles.timelineStep} ${styles.reveal} animate-fade-up delay-300`}>
-              <div className={styles.stepNumber}>4</div>
-              <div className={styles.stepContent}>
-                <h3>Order Confirmed</h3>
-                <p>Synced to CRM & Calendar instantly.</p>
+              <div className={`${styles.stepCircle} ${styles.stepCircleEnd}`}>
+                <TrendingUp size={20} />
+              </div>
+              <h3>Confirmed Revenue</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Authority Section */}
+      <section className={styles.authoritySection}>
+        <div className={styles.container}>
+          <div className={styles.authorityContent}>
+            <h2 className={`${styles.sectionTitle} ${styles.reveal} animate-fade-up`}>
+              We Don’t Build Chatbots. <br />
+              <span className="text-gradient-gold">We Build Predictable Revenue Systems.</span>
+            </h2>
+            <p className={`${styles.authorityDesc} ${styles.reveal} animate-fade-up delay-100`}>
+              Founded by Rohit Gautam & Roshan Dev, FlowX AI combines automation strategy and high-converting web architecture to help local businesses scale smarter.
+            </p>
+            
+            <div className={styles.foundersGrid}>
+              <div className={`${styles.founderCard} ${styles.reveal} animate-fade-up delay-200`}>
+                <img src="/founders/rohit.webp" alt="Rohit Gautam" className={styles.founderImg} />
+                <div className={styles.founderOverlay}>
+                  <span>Rohit Gautam</span>
+                  <small>Co-Founder</small>
+                </div>
+              </div>
+              <div className={`${styles.founderCard} ${styles.reveal} animate-fade-up delay-300`}>
+                <img src="/founders/roshan.png" alt="Roshan Dev" className={styles.founderImg} />
+                <div className={styles.founderOverlay}>
+                  <span>Roshan Dev</span>
+                  <small>Co-Founder</small>
+                </div>
               </div>
             </div>
+
+            <Link to="/about" className={`${styles.outlineBtn} ${styles.reveal} animate-fade-up delay-400`}>
+              Meet the Founders <ChevronRight size={16} />
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Section 5: Authority */}
-      <section className={styles.whySection}>
-        <div className={styles.container}>
-          <div className={styles.sectionHeader}>
-            <h2 className={styles.sectionTitle}>Built by Founders Who <br className="mobile-only" /><span className="text-gradient-blue">Understand Growth.</span></h2>
-            <p className={styles.sectionDesc}>We don’t build tools. We build revenue systems.</p>
-          </div>
-
-          <div className={styles.whyGrid}>
-            <div className={`${styles.whyCard} ${styles.reveal} animate-fade-up`}>
-              <div className={styles.whyIcon}><Zap size={24} /></div>
-              <h3>Automation Focused</h3>
-              <p>Eliminate manual work and repetitive tasks completely.</p>
-            </div>
-            <div className={`${styles.whyCard} ${styles.reveal} animate-fade-up delay-100`}>
-              <div className={styles.whyIcon}><TrendingUp size={24} /></div>
-              <h3>Conversion Driven</h3>
-              <p>Every interaction is optimized to capture value.</p>
-            </div>
-            <div className={`${styles.whyCard} ${styles.reveal} animate-fade-up delay-200`}>
-              <div className={styles.whyIcon}><Clock size={24} /></div>
-              <h3>24/7 Systems</h3>
-              <p>Your business runs even when you're sleeping.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 6: Agency Positioning (NEW) */}
-      <section className={styles.agencySection}>
-        <div className={styles.container}>
-          <div className={`${styles.agencyCard} ${styles.reveal} animate-fade-up`}>
-            <div className={styles.agencyContent}>
-              <h2 className={styles.agencyTitle}>Your AI Growth Partner — <span className="text-gradient-cyan">Not Just a Service Provider.</span></h2>
-              <p className={styles.agencyText}>
-                FlowX AI helps restaurants and local businesses automate customer conversations, capture more leads, and scale revenue without increasing workload.
-              </p>
-              <div className={styles.founderNote}>
-                <p>Founded by <strong>Rohit Gautam</strong> & <strong>Roshan Dev</strong>.</p>
-              </div>
-              <Link to="/about" className={styles.agencyBtn}>
-                Meet the Founders <ArrowRight size={18} />
-              </Link>
-            </div>
-            <div className={styles.foundersVisual}>
-               <div className={styles.founderImageWrapper}>
-                  <img src="/founders/rohit.webp" alt="Rohit Gautam" className={styles.founderImg} />
-                  <div className={styles.founderNameTag}>Rohit</div>
-               </div>
-               <div className={styles.founderImageWrapper}>
-                  <img src="/founders/roshan.png" alt="Roshan Dev" className={styles.founderImg} />
-                  <div className={styles.founderNameTag}>Roshan</div>
-               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 7: Final CTA */}
+      {/* Final CTA */}
       <section className={styles.finalCta}>
-        <div className={styles.glowBlob} style={{ left: '50%', top: '50%', transform: 'translate(-50%, -50%)', opacity: 0.15 }} />
+        <div className={styles.glowSpot} />
         <div className={styles.container}>
           <div className={styles.ctaBox}>
             <h2 className={styles.ctaTitle}>
-              Stop Losing Customers to <br />
-              <span className="text-gradient-accent">Faster Competitors.</span>
+              Every Day You Delay Automation, <br />
+              <span className="text-gradient-gold">You Lose Customers.</span>
             </h2>
             <p className={styles.ctaSubtitle}>
-              If you're not automating, you're falling behind.
+              You can keep replying manually. Or you can build a system that closes automatically.
             </p>
             <div className={styles.ctaButtons}>
               <a 
@@ -371,7 +358,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className={styles.secondaryBtn}
               >
-                Chat With Us on WhatsApp
+                Chat on WhatsApp
               </a>
             </div>
           </div>
@@ -384,7 +371,7 @@ export default function Home() {
           <div className={styles.footerContent}>
             <div className={styles.footerBrand}>
               <h3>FlowX <span style={{ color: 'var(--color-accent-primary)' }}>AI</span></h3>
-              <p>Premium AI Growth Agency</p>
+              <p>Luxury AI Growth Agency</p>
             </div>
             <div className={styles.footerLinks}>
               <Link to="/whatsapp-ai-agent">WhatsApp AI</Link>
