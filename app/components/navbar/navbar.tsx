@@ -1,119 +1,81 @@
+import { Link, useLocation } from "react-router";
 import { useState, useEffect } from "react";
-import { MessageCircle, Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import styles from "./navbar.module.css";
 
+
 export function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      setScrolled(scrollY > 20);
+      setScrolled(window.scrollY > 20);
     };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on link click
-  const closeMobileMenu = () => setMobileMenuOpen(false);
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "WhatsApp AI Agent", path: "/whatsapp-ai-agent" },
+    { name: "AI Websites", path: "/ai-websites" },
+  ];
 
   return (
-    <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
-      <nav className={styles.navContainer}>
-        {/* Brand */}
-        <a href="/" className={styles.brand}>
-          <span className={styles.brandName}>FlowX AI</span>
-        </a>
-
-        {/* Desktop Menu */}
-        <ul className={styles.navMenu}>
-          <li className={styles.navItem}>
-            <a href="#solutions" className={styles.navLink}>
-              WhatsApp AI Agent
-            </a>
-          </li>
-
-          <li className={styles.navItem}>
-            <a href="#solutions" className={styles.navLink}>
-              AI Websites
-            </a>
-          </li>
-
-          <li className={styles.navItem}>
-            <a href="#about" className={styles.navLink}>
-              About
-            </a>
-          </li>
-        </ul>
-
-        {/* CTA Button */}
-        <div className={styles.navRight}>
-          <a
-            href="https://wa.me/919006455592"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.ctaButton}
-          >
-            <span>Book Strategy Call</span>
-            <ArrowRight size={16} />
-          </a>
-
-          {/* Mobile Menu Toggle */}
-          <button
-            className={styles.mobileToggle}
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+    <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
+      <div className={styles.container}>
+        <div className={styles.logo}>
+          <Link to="/">
+            FlowX <span className={styles.logoHighlight}>AI</span>
+          </Link>
         </div>
-      </nav>
 
-      {/* Mobile Menu Panel */}
-      <div className={`${styles.mobileMenu} ${mobileMenuOpen ? styles.mobileMenuOpen : ""}`}>
-        <div className={styles.mobileMenuContent}>
-          <a
-            href="#solutions"
-            className={styles.mobileMenuItem}
-            onClick={closeMobileMenu}
-          >
-            WhatsApp AI Agent
+        {/* Desktop Nav */}
+        <div className={styles.desktopNav}>
+          {navLinks.map((link) => (
+            <Link
+              key={link.path}
+              to={link.path}
+              className={`${styles.navLink} ${location.pathname === link.path ? styles.active : ""}`}
+            >
+              {link.name}
+            </Link>
+          ))}
+          <a href="#contact" className={styles.ctaButton}>
+            Book Strategy Call
           </a>
-          <a
-            href="#solutions"
-            className={styles.mobileMenuItem}
-            onClick={closeMobileMenu}
-          >
-            AI Websites
-          </a>
-          <a
-            href="#about"
-            className={styles.mobileMenuItem}
-            onClick={closeMobileMenu}
-          >
-            About
-          </a>
-          <a
-            href="#how-it-works"
-            className={styles.mobileMenuItem}
-            onClick={closeMobileMenu}
-          >
-            How It Works
-          </a>
+        </div>
 
-          <a
-            href="https://wa.me/919006455592"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.mobileCtaButton}
-          >
-            <span>Book Strategy Call</span>
-            <MessageCircle size={18} />
-          </a>
+        {/* Mobile Toggle */}
+        <button 
+          className={styles.mobileToggle}
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu"
+        >
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+
+        {/* Mobile Nav */}
+        <div className={`${styles.mobileNav} ${isOpen ? styles.open : ""}`}>
+          <div className={styles.mobileNavContent}>
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={styles.mobileNavLink}
+                onClick={() => setIsOpen(false)}
+              >
+                {link.name}
+              </Link>
+            ))}
+            <a href="#contact" className={styles.mobileCtaButton} onClick={() => setIsOpen(false)}>
+              Book Strategy Call <ArrowRight size={16} />
+            </a>
+          </div>
         </div>
       </div>
-    </header>
+    </nav>
   );
 }
