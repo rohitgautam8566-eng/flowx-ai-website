@@ -436,36 +436,7 @@
   color: #666;
 }
 
-.aiResolutionCard {
-  position: absolute;
-  bottom: -30px;
-  right: -20px;
-  background: rgba(5, 8, 22, 0.9);
-  border: 1px solid #00C2FF;
-  padding: 1rem;
-  border-radius: 12px;
-  backdrop-filter: blur(10px);
-  width: 250px;
-  box-shadow: 0 0 30px rgba(0, 194, 255, 0.2);
-  animation: fadeUp 1s 1s forwards;
-  opacity: 0;
-}
 
-.aiResHeader {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: #00C2FF;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  font-size: 0.9rem;
-}
-
-.aiResolutionCard p {
-  color: #fff;
-  font-size: 0.85rem;
-  line-height: 1.4;
-}
 
 /* SYSTEMS SECTION */
 .systemsSection {

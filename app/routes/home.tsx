@@ -177,14 +177,7 @@ export default function Home() {
                     <span className={styles.notifTime}>10m ago • Waiting for confirm</span>
                   </div>
                 </div>
-                
-                <div className={styles.aiResolutionCard}>
-                  <div className={styles.aiResHeader}>
-                    <Bot size={16} className={styles.aiIcon} />
-                    <span>AI Agent Resolved</span>
-                  </div>
-                  <p>All inquiries handled instantly. 0 missed leads.</p>
-                </div>
+
               </div>
             </div>
           </div>
