@@ -22,10 +22,10 @@ export default function Home() {
       const mobileCta = document.getElementById('mobile-sticky-cta');
       if (mobileCta) {
         entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            mobileCta.style.transform = 'translateY(100%)';
+          if (!entry.isIntersecting) {
+            mobileCta.classList.add(styles.showSticky);
           } else {
-            mobileCta.style.transform = 'translateY(0)';
+            mobileCta.classList.remove(styles.showSticky);
           }
         });
       }
@@ -47,28 +47,31 @@ export default function Home() {
       {/* Hero Section */}
       <section id="hero-section" className={styles.hero}>
         <div className={styles.heroBackground}>
-          <div className={`${styles.glowBlob} ${styles.glowBlobBlue}`} />
-          <div className={`${styles.glowBlob} ${styles.glowBlobPurple}`} />
-          <div className="bg-grid" />
+           <div className={styles.blobContainer}>
+             <div className={`${styles.blob} ${styles.blobCyan}`} />
+             <div className={`${styles.blob} ${styles.blobBlue}`} />
+           </div>
+           <div className={styles.gridOverlay} />
         </div>
         
         <div className={styles.container}>
           <div className={styles.heroLayout}>
+            {/* Left Content */}
             <div className={styles.heroContent}>
-              <div className={styles.badge}>
-                <span>✨ AI Automation for Local Business</span>
+              <div className={`${styles.badge} animate-fade-up`}>
+                <span>✨ AI Growth Systems for Restaurants & Local Businesses</span>
               </div>
               
-              <h1 className={styles.heroTitle}>
-                Two AI Systems. <br />
-                <span className="text-gradient-blue">One Growth Engine.</span>
+              <h1 className={`${styles.heroTitle} animate-fade-up delay-100`}>
+                Turn Conversations Into <br className={styles.desktopBr}/>
+                <span className="text-gradient-cyan">Customers — Automatically.</span>
               </h1>
               
-              <p className={styles.heroSubtitle}>
-                We help restaurants and local businesses automate conversations, capture leads, and convert more customers — 24/7.
+              <p className={`${styles.heroSubtitle} animate-fade-up delay-200`}>
+                We build AI-powered WhatsApp agents and high-converting websites that capture leads, confirm bookings, and increase revenue — 24/7 without extra staff.
               </p>
               
-              <div className={styles.heroButtons}>
+              <div className={`${styles.heroButtons} animate-fade-up delay-300`}>
                 <a 
                   href="https://calendly.com/flowxai/15-min-free-discovery-call" 
                   target="_blank" 
@@ -86,34 +89,44 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Hero Workflow Visual */}
-            <div className={styles.heroVisual}>
-              <div className={styles.workflowContainer}>
-                <div className={styles.workflowTrack} />
-                <div className={styles.workflowNodes}>
-                  <div className={`${styles.wfNode} ${styles.node1}`}>
-                    <div className={styles.wfIcon}><Smartphone size={20} /></div>
-                    <span>Customer</span>
+            {/* Right Visual */}
+            <div className={`${styles.heroVisual} animate-fade-up delay-500`}>
+               <div className={styles.visualGlassPanel}>
+                  <div className={styles.workflowSystem}>
+                    <div className={styles.workflowLine} />
+                    
+                    {/* Customer */}
+                    <div className={styles.wfNode}>
+                      <div className={styles.wfIcon}><Smartphone size={20} /></div>
+                      <span className={styles.wfLabel}>Customer</span>
+                    </div>
+
+                    {/* WhatsApp (Desktop Only) */}
+                    <div className={`${styles.wfNode} ${styles.desktopNode}`}>
+                      <div className={styles.wfIcon}><MessageSquare size={20} /></div>
+                      <span className={styles.wfLabel}>WhatsApp</span>
+                    </div>
+
+                    {/* AI Agent (Main) */}
+                    <div className={`${styles.wfNode} ${styles.activeNode}`}>
+                      <div className={styles.wfIcon}><Bot size={24} /></div>
+                      <span className={styles.wfLabel}>AI Agent</span>
+                      <div className={styles.pulseRing} />
+                    </div>
+
+                     {/* CRM (Desktop Only) */}
+                    <div className={`${styles.wfNode} ${styles.desktopNode}`}>
+                      <div className={styles.wfIcon}><Database size={20} /></div>
+                      <span className={styles.wfLabel}>CRM</span>
+                    </div>
+
+                    {/* Order Confirmed */}
+                    <div className={styles.wfNode}>
+                      <div className={styles.wfIcon}><CheckCircle size={20} /></div>
+                      <span className={styles.wfLabel}>Confirmed</span>
+                    </div>
                   </div>
-                  <div className={`${styles.wfNode} ${styles.node2}`}>
-                    <div className={styles.wfIcon}><MessageSquare size={20} /></div>
-                    <span>WhatsApp</span>
-                  </div>
-                  <div className={`${styles.wfNode} ${styles.node3} ${styles.nodeActive}`}>
-                    <div className={styles.wfIcon}><Bot size={20} /></div>
-                    <span>AI Agent</span>
-                    <div className={styles.nodePulse} />
-                  </div>
-                  <div className={`${styles.wfNode} ${styles.node4}`}>
-                    <div className={styles.wfIcon}><Database size={20} /></div>
-                    <span>CRM</span>
-                  </div>
-                  <div className={`${styles.wfNode} ${styles.node5}`}>
-                    <div className={styles.wfIcon}><CheckCircle size={20} /></div>
-                    <span>Confirmed</span>
-                  </div>
-                </div>
-              </div>
+               </div>
             </div>
           </div>
         </div>
