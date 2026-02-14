@@ -18,22 +18,6 @@ export default function Home() {
 
     document.querySelectorAll(`.${styles.reveal}`).forEach(el => observer.observe(el));
     
-    // Sticky CTA observer
-    const ctaObserver = new IntersectionObserver((entries) => {
-      const mobileCta = document.getElementById('mobile-sticky-cta');
-      if (mobileCta) {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) {
-            mobileCta.classList.add(styles.showSticky);
-          } else {
-            mobileCta.classList.remove(styles.showSticky);
-          }
-        });
-      }
-    }, { threshold: 0.1 });
-
-    if (heroRef.current) ctaObserver.observe(heroRef.current);
-
     // Parallax effect
     const handleScroll = () => {
       const scrolled = window.scrollY;
@@ -47,7 +31,6 @@ export default function Home() {
 
     return () => {
       observer.disconnect();
-      ctaObserver.disconnect();
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
@@ -386,16 +369,6 @@ export default function Home() {
         </div>
       </footer>
 
-      {/* Sticky Mobile CTA */}
-      <div id="mobile-sticky-cta" className={styles.mobileStickyCta}>
-        <a 
-          href="https://calendly.com/flowxai/15-min-free-discovery-call" 
-          target="_blank" 
-          rel="noopener noreferrer"
-        >
-          Book Strategy Call
-        </a>
-      </div>
     </div>
   );
 }
