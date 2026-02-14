@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import styles from "./home.module.css";
 import { Navbar } from "../components/navbar/navbar";
-import { ArrowRight, Bot, MessageSquare, CheckCircle, Smartphone, Zap, Clock, TrendingUp, Users, Globe, ChevronRight, Play } from "lucide-react";
+import { ArrowRight, Bot, MessageSquare, CheckCircle, Smartphone, Zap, TrendingUp, Users, Globe, ChevronRight } from "lucide-react";
 import { Link } from "react-router";
 
 export default function Home() {
@@ -60,8 +60,8 @@ export default function Home() {
       <section ref={heroRef} id="hero-section" className={styles.hero}>
         <div className={styles.heroBackground}>
            <div className={styles.blobContainer}>
-             <div className={`${styles.blob} ${styles.blobGold}`} />
-             <div className={`${styles.blob} ${styles.blobBronze}`} />
+             <div className={`${styles.blob} ${styles.blobBlue}`} />
+             <div className={`${styles.blob} ${styles.blobPurple}`} />
            </div>
            <div className={styles.gridOverlay} />
            <div className={styles.particles} />
@@ -73,7 +73,7 @@ export default function Home() {
             <div className={styles.heroContent}>
               <h1 className={`${styles.heroTitle} animate-fade-up`}>
                 Don’t Just Automate. <br />
-                <span className="text-gradient-gold">Build a Revenue Engine.</span>
+                <span className="text-gradient-blue">Build a Revenue Engine.</span>
               </h1>
               
               <p className={`${styles.heroSubtitle} animate-fade-up delay-100`}>
@@ -162,7 +162,7 @@ export default function Home() {
       <section className={styles.painSection}>
         <div className={styles.container}>
           <div className={`${styles.painHeader} ${styles.reveal} animate-fade-up`}>
-            <h2 className={styles.sectionTitle}>How Much Revenue Are You Losing <span className="text-gradient-gold">Every Week?</span></h2>
+            <h2 className={styles.sectionTitle}>How Much Revenue Are You Losing <span className="text-gradient-blue">Every Week?</span></h2>
             <p className={styles.sectionDesc}>
               Missed messages. Slow replies. Manual follow-ups. Overworked staff. <br className={styles.desktopBr} />
               <span className={styles.highlight}>Your competitors are already automating.</span>
@@ -199,7 +199,7 @@ export default function Home() {
       <section className={styles.servicesSection}>
         <div className={styles.container}>
           <div className={styles.sectionHeader}>
-            <h2 className={styles.sectionTitle}>Two Systems. <br className="mobile-only" /><span className="text-gradient-gold">One Growth Strategy.</span></h2>
+            <h2 className={styles.sectionTitle}>Two Systems. <br className="mobile-only" /><span className="text-gradient-blue">One Growth Strategy.</span></h2>
             <p className={styles.sectionDesc}>We design automation systems that work silently in the background — generating leads, confirming bookings, and increasing revenue.</p>
           </div>
           
@@ -301,7 +301,7 @@ export default function Home() {
           <div className={styles.authorityContent}>
             <h2 className={`${styles.sectionTitle} ${styles.reveal} animate-fade-up`}>
               We Don’t Build Chatbots. <br />
-              <span className="text-gradient-gold">We Build Predictable Revenue Systems.</span>
+              <span className="text-gradient-blue">We Build Predictable Revenue Systems.</span>
             </h2>
             <p className={`${styles.authorityDesc} ${styles.reveal} animate-fade-up delay-100`}>
               Founded by Rohit Gautam & Roshan Dev, FlowX AI combines automation strategy and high-converting web architecture to help local businesses scale smarter.
@@ -338,7 +338,7 @@ export default function Home() {
           <div className={styles.ctaBox}>
             <h2 className={styles.ctaTitle}>
               Every Day You Delay Automation, <br />
-              <span className="text-gradient-gold">You Lose Customers.</span>
+              <span className="text-gradient-blue">You Lose Customers.</span>
             </h2>
             <p className={styles.ctaSubtitle}>
               You can keep replying manually. Or you can build a system that closes automatically.
@@ -370,7 +370,7 @@ export default function Home() {
         <div className={styles.container}>
           <div className={styles.footerContent}>
             <div className={styles.footerBrand}>
-              <h3>FlowX <span style={{ color: 'var(--color-accent-primary)' }}>AI</span></h3>
+              <h3>FlowX <span style={{ color: '#3da9fc' }}>AI</span></h3>
               <p>Luxury AI Growth Agency</p>
             </div>
             <div className={styles.footerLinks}>
