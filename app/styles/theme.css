@@ -9,35 +9,50 @@ html {
 }
 
 html {
-  /* Neutral colors - Deep dark theme with mauve */
-  --color-neutral-1: var(--mauve-1);
-  --color-neutral-2: var(--mauve-2);
-  --color-neutral-3: var(--mauve-3);
-  --color-neutral-4: var(--mauve-4);
-  --color-neutral-5: var(--mauve-5);
-  --color-neutral-6: var(--mauve-6);
-  --color-neutral-7: var(--mauve-7);
-  --color-neutral-8: var(--mauve-8);
-  --color-neutral-9: var(--mauve-9);
-  --color-neutral-10: var(--mauve-10);
-  --color-neutral-11: var(--mauve-11);
-  --color-neutral-12: var(--mauve-12);
-  --color-neutral-contrast: var(--mauve-contrast);
+  /* Neutral colors - Deep Matte Black Base */
+  --color-neutral-1: #0b0f19; /* Deep Matte Black */
+  --color-neutral-2: #111827; /* Dark Navy */
+  --color-neutral-3: #161e31;
+  --color-neutral-4: #1f2937;
+  --color-neutral-5: #374151;
+  --color-neutral-6: #4b5563;
+  --color-neutral-7: #6b7280;
+  --color-neutral-8: #9ca3af;
+  --color-neutral-9: #d1d5db;
+  --color-neutral-10: #e5e7eb;
+  --color-neutral-11: #f3f4f6;
+  --color-neutral-12: #ffffff;
+  --color-neutral-contrast: #ffffff;
 
-  /* Accent colors - Purple/Violet for premium AI glow */
-  --color-accent-1: var(--violet-1);
-  --color-accent-2: var(--violet-2);
-  --color-accent-3: var(--violet-3);
-  --color-accent-4: var(--violet-4);
-  --color-accent-5: var(--violet-5);
-  --color-accent-6: var(--violet-6);
-  --color-accent-7: var(--violet-7);
-  --color-accent-8: var(--violet-8);
-  --color-accent-9: var(--violet-9);
-  --color-accent-10: var(--violet-10);
-  --color-accent-11: var(--violet-11);
-  --color-accent-12: var(--violet-12);
-  --color-accent-contrast: var(--violet-contrast);
+  /* Accent colors - Electric Blue / AI Blue */
+  --color-accent-1: #1e3a8a; /* Dark Blue */
+  --color-accent-2: #1d4ed8;
+  --color-accent-3: #2563eb;
+  --color-accent-4: #3b82f6; /* Soft AI Blue */
+  --color-accent-5: #60a5fa;
+  --color-accent-6: #93c5fd;
+  --color-accent-7: #bfdbfe;
+  --color-accent-8: #dbeafe;
+  --color-accent-9: #3b82f6; /* Primary Brand Color */
+  --color-accent-10: #2563eb;
+  --color-accent-11: #1d4ed8;
+  --color-accent-12: #1e40af;
+  --color-accent-contrast: #ffffff;
+
+  /* Secondary Accent - Neon Cyan */
+  --color-secondary-1: #083344;
+  --color-secondary-2: #0e7490;
+  --color-secondary-3: #06b6d4;
+  --color-secondary-4: #22d3ee;
+  --color-secondary-5: #67e8f9;
+  --color-secondary-6: #a5f3fc;
+  --color-secondary-7: #cffafe;
+  --color-secondary-8: #ecfeff;
+  --color-secondary-9: #00e5ff; /* Neon Cyan */
+  --color-secondary-10: #06b6d4;
+  --color-secondary-11: #0891b2;
+  --color-secondary-12: #0e7490;
+  --color-secondary-contrast: #000000;
 
   /* Error colors */
   --color-error-1: var(--red-1);
@@ -54,24 +69,26 @@ html {
   --color-error-12: var(--red-12);
   --color-error-contrast: var(--red-contrast);
 
-  /* Success colors - Cyan for secondary accent */
-  --color-success-1: var(--cyan-1);
-  --color-success-2: var(--cyan-2);
-  --color-success-3: var(--cyan-3);
-  --color-success-4: var(--cyan-4);
-  --color-success-5: var(--cyan-5);
-  --color-success-6: var(--cyan-6);
-  --color-success-7: var(--cyan-7);
-  --color-success-8: var(--cyan-8);
-  --color-success-9: var(--cyan-9);
-  --color-success-10: var(--cyan-10);
-  --color-success-11: var(--cyan-11);
-  --color-success-12: var(--cyan-12);
-  --color-success-contrast: var(--cyan-contrast);
+  /* Success colors */
+  --color-success-1: var(--green-1);
+  --color-success-2: var(--green-2);
+  --color-success-3: var(--green-3);
+  --color-success-4: var(--green-4);
+  --color-success-5: var(--green-5);
+  --color-success-6: var(--green-6);
+  --color-success-7: var(--green-7);
+  --color-success-8: var(--green-8);
+  --color-success-9: var(--green-9);
+  --color-success-10: var(--green-10);
+  --color-success-11: var(--green-11);
+  --color-success-12: var(--green-12);
+  --color-success-contrast: var(--green-contrast);
 
-  /* Custom semantic colors for FlowX AI - Purple + Cyan glow theme */
-  --color-secondary-9: var(--cyan-9);
-  --color-secondary-11: var(--cyan-11);
-  --color-glow-primary: var(--violet-9);
-  --color-glow-secondary: var(--cyan-9);
+  /* Custom semantic colors for FlowX AI */
+  --color-bg-primary: #0b0f19;
+  --color-bg-secondary: #111827;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #9ca3af;
+  --color-glow-primary: #3b82f6;
+  --color-glow-secondary: #00e5ff;
 }
