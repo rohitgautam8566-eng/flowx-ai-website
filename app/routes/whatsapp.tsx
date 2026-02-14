@@ -4,26 +4,28 @@ import { Navbar } from "../components/navbar/navbar";
 import { Check, ArrowRight, MessageCircle, Database, Zap, Clock, Users, Shield } from "lucide-react";
 
 export default function WhatsAppAgentPage() {
-  
   useEffect(() => {
     // Simple intersection observer for fade-in elements
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add(styles.visible);
-        }
-      });
-    }, { threshold: 0.1 });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(styles.visible);
+          }
+        });
+      },
+      { threshold: 0.1 },
+    );
 
-    document.querySelectorAll(`.${styles.reveal}`).forEach(el => observer.observe(el));
-    
+    document.querySelectorAll(`.${styles.reveal}`).forEach((el) => observer.observe(el));
+
     return () => observer.disconnect();
   }, []);
 
   return (
     <div className={styles.page}>
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className={styles.hero}>
         <div className={styles.heroGlow} />
@@ -93,9 +95,13 @@ export default function WhatsAppAgentPage() {
               "Orders not confirmed properly",
               "No follow-up on leads",
               "Manual chaos during peak hours",
-              "Customers switching to competitors"
+              "Customers switching to competitors",
             ].map((problem, i) => (
-              <div key={i} className={`${styles.problemCard} ${styles.reveal}`} style={{ transitionDelay: `${i * 100}ms` }}>
+              <div
+                key={i}
+                className={`${styles.problemCard} ${styles.reveal}`}
+                style={{ transitionDelay: `${i * 100}ms` }}
+              >
                 <div className={styles.problemIcon}>✕</div>
                 <p>{problem}</p>
               </div>
@@ -107,19 +113,33 @@ export default function WhatsAppAgentPage() {
       {/* Features Section */}
       <section className={styles.features}>
         <div className={styles.container}>
-          <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>
-            System Features
-          </h2>
+          <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>System Features</h2>
           <div className={styles.featureGrid}>
             {[
-              { icon: Zap, title: "Automatic Order Taking", desc: "Handle complex orders instantly without human intervention." },
+              {
+                icon: Zap,
+                title: "Automatic Order Taking",
+                desc: "Handle complex orders instantly without human intervention.",
+              },
               { icon: Check, title: "Instant Confirmation", desc: "Send immediate receipts and estimates." },
               { icon: Clock, title: "Table Reservations", desc: "Book tables 24/7 directly through chat." },
-              { icon: MessageCircle, title: "FAQ Automation", desc: "Answer common questions about location, menu, and hours." },
-              { icon: Database, title: "Customer Data Capture", desc: "Automatically save names, numbers, and preferences." },
+              {
+                icon: MessageCircle,
+                title: "FAQ Automation",
+                desc: "Answer common questions about location, menu, and hours.",
+              },
+              {
+                icon: Database,
+                title: "Customer Data Capture",
+                desc: "Automatically save names, numbers, and preferences.",
+              },
               { icon: Users, title: "Human Handover", desc: "Seamlessly alert staff when a human is needed." },
               { icon: Shield, title: "24/7 Response", desc: "Never sleep. Never miss a message." },
-              { icon: ArrowRight, title: "Follow-up Messaging", desc: "Re-engage customers who didn't complete orders." }
+              {
+                icon: ArrowRight,
+                title: "Follow-up Messaging",
+                desc: "Re-engage customers who didn't complete orders.",
+              },
             ].map((feature, i) => (
               <div key={i} className={`${styles.featureCard} ${styles.reveal}`}>
                 <feature.icon className={styles.featureIcon} size={28} />
@@ -136,10 +156,11 @@ export default function WhatsAppAgentPage() {
         <div className={styles.container}>
           <div className={`${styles.founderContent} ${styles.reveal}`}>
             <h2>Built By Founders Who Understand Growth.</h2>
-            <p className={styles.founderSubtext}>We design AI systems that help restaurants and local businesses grow without increasing manual workload.</p>
-            
+            <p className={styles.founderSubtext}>
+              We design AI systems that help restaurants and local businesses grow without increasing manual workload.
+            </p>
+
             <div className={styles.founderGrid}>
-              
               {/* Rohit */}
               <div className={styles.founderCard}>
                 <div className={styles.founderImageWrapper}>
@@ -203,7 +224,6 @@ export default function WhatsAppAgentPage() {
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
@@ -217,7 +237,7 @@ export default function WhatsAppAgentPage() {
           <p>Doing nothing is also a decision.</p>
           <div className={styles.ctaButtons}>
             <a href="https://wa.me/1234567890?text=YES" className={styles.primaryBtnLarge}>
-              Reply YES and We’ll Show You How
+              Message us on WhatsApp
             </a>
             <a href="#call" className={styles.secondaryBtnLarge}>
               Book Strategy Call
