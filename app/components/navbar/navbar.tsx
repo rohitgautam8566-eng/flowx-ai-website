@@ -21,6 +21,7 @@ export function Navbar() {
     { name: "Home", path: "/" },
     { name: "WhatsApp AI Agent", path: "/whatsapp-ai-agent" },
     { name: "AI Websites", path: "/ai-websites" },
+    { name: "About Us", path: "/about" },
   ];
 
   return (
