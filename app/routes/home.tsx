@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import styles from "./home.module.css";
 import { Navbar } from "../components/navbar/navbar";
-import { ArrowRight, Bot, Layout, Zap, ExternalLink } from "lucide-react";
+import { ArrowRight, Bot, Layout } from "lucide-react";
 import { Link } from "react-router";
 
 export default function Home() {

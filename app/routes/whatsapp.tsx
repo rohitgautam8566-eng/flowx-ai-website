@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import styles from "./whatsapp-ai-agent.module.css";
+import styles from "./whatsapp.module.css";
 import { Navbar } from "../components/navbar/navbar";
 import { Check, ArrowRight, MessageCircle, Database, Zap, Clock, Users, Shield } from "lucide-react";
 
