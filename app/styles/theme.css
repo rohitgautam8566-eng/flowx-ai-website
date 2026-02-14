@@ -2,30 +2,30 @@
   /* Typography */
   --font-display: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  
+  --font-code: "Fira Code", monospace;
+
   /* Brand Colors - Deep Navy & Electric Blue Theme */
   --color-background: #050816;
   --color-surface: rgba(255, 255, 255, 0.03);
   --color-surface-hover: rgba(255, 255, 255, 0.07);
-  --color-border: rgba(59, 130, 246, 0.2);
-  
+  --color-border: rgba(0, 194, 255, 0.15); /* Electric Blue hint */
+
   /* Text */
-  --color-text-primary: #ffffff;
-  --color-text-secondary: #94a3b8;
+  --color-text-primary: #EAEAEA; /* Soft White */
+  --color-text-secondary: #AAB0C0; /* Light Gray */
   --color-text-tertiary: #64748b;
-  
+
   /* Accents */
-  --color-accent-primary: #3B82F6; /* Electric Blue */
-  --color-accent-secondary: #06B6D4; /* Cyan Glow */
-  --color-accent-tertiary: #7C3AED; /* Soft Purple */
-  --color-accent-glow: rgba(59, 130, 246, 0.5);
+  --color-accent-primary: #00C2FF; /* Electric Blue */
+  --color-accent-secondary: #7B5CFF; /* Soft Purple */
+  --color-accent-glow: #00C2FF; /* Cyan-blue glow */
   
   /* Gradients */
-  --gradient-bg: linear-gradient(to bottom, #050816, #0F172A);
-  --gradient-primary: linear-gradient(135deg, #3B82F6 0%, #06B6D4 100%);
-  --gradient-glow: radial-gradient(circle at center, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
-  --gradient-glass: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.0) 100%);
-  
+  --gradient-bg: linear-gradient(to bottom, #050816, #0b1023);
+  --gradient-primary: linear-gradient(135deg, #00C2FF 0%, #7B5CFF 100%);
+  --gradient-glow: radial-gradient(circle at center, rgba(0, 194, 255, 0.2) 0%, transparent 70%);
+  --gradient-glass: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.0) 100%);
+
   /* Spacing */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
@@ -36,22 +36,23 @@
   --space-8: 3rem;
   --space-10: 4rem;
   --space-12: 6rem;
-  
+
   /* Radius */
   --radius-sm: 0.5rem;
   --radius-md: 0.75rem;
-  --radius-lg: 1rem;
-  --radius-xl: 1.5rem;
+  --radius-lg: 1rem; /* 16px */
+  --radius-xl: 1.5rem; /* 24px */
   --radius-full: 9999px;
-  
+
   /* Shadows & Glows */
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
-  --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.3);
-  --shadow-glow-hover: 0 0 30px rgba(59, 130, 246, 0.5);
+  --shadow-glow: 0 0 20px rgba(0, 194, 255, 0.2);
+  --shadow-glow-hover: 0 0 30px rgba(0, 194, 255, 0.4);
 
   /* Animation */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Required Theme Variables Mapped */
@@ -75,19 +76,19 @@
   --color-neutral-12: #ffffff;
   --color-neutral-contrast: #ffffff;
 
-  /* Mapping to Accent Scale (Blue) */
-  --color-accent-1: #eff6ff;
-  --color-accent-2: #dbeafe;
-  --color-accent-3: #bfdbfe;
-  --color-accent-4: #93c5fd;
-  --color-accent-5: #60a5fa;
-  --color-accent-6: #3b82f6;
-  --color-accent-7: #2563eb;
-  --color-accent-8: #1d4ed8;
-  --color-accent-9: #1e40af;
-  --color-accent-10: #1e3a8a;
-  --color-accent-11: #172554;
-  --color-accent-12: #0f172a;
+  /* Mapping to Accent Scale (Blue/Cyan) */
+  --color-accent-1: #ecfeff;
+  --color-accent-2: #cffafe;
+  --color-accent-3: #a5f3fc;
+  --color-accent-4: #67e8f9;
+  --color-accent-5: #22d3ee;
+  --color-accent-6: #06b6d4;
+  --color-accent-7: #0891b2;
+  --color-accent-8: #0e7490;
+  --color-accent-9: #155e75;
+  --color-accent-10: #164e63;
+  --color-accent-11: #083344;
+  --color-accent-12: #000000;
   --color-accent-contrast: #ffffff;
   
   /* Error & Success */

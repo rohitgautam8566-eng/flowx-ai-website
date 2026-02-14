@@ -1,8 +1,29 @@
 import { MessageCircle, Mail, TrendingUp, Cpu, Clock, ShieldCheck, Phone } from "lucide-react";
 import styles from "./about.module.css";
 import { Navbar } from "~/components/navbar/navbar";
+import { useEffect } from "react";
 
 export default function AboutUs() {
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (entry.target.classList.contains(styles.reveal)) {
+            entry.target.classList.add(styles.visible);
+          }
+          if (entry.target.classList.contains(styles.imageReveal)) {
+            entry.target.classList.add(styles.imageVisible);
+          }
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll(`.${styles.reveal}, .${styles.imageReveal}`).forEach(el => observer.observe(el));
+    
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className={styles.container}>
       <Navbar />
@@ -11,10 +32,10 @@ export default function AboutUs() {
       <section className={styles.heroSection}>
         <div className={styles.gradientOrb}></div>
         <div className={styles.heroContent}>
-          <h1 className={`${styles.heroTitle} ${styles.fadeUp}`}>
+          <h1 className={`${styles.heroTitle} ${styles.reveal}`}>
             Built by Founders<br />Who Understand Growth.
           </h1>
-          <p className={`${styles.heroSubtitle} ${styles.fadeUp} ${styles.delay1}`}>
+          <p className={`${styles.heroSubtitle} ${styles.reveal} ${styles.delay1}`}>
             We don’t build chatbots. We build revenue systems for modern businesses.
           </p>
         </div>
@@ -23,7 +44,7 @@ export default function AboutUs() {
       {/* 2. FOUNDER SECTION - ROHIT */}
       <section className={styles.founderSection}>
         <div className={styles.founderRow}>
-          <div className={`${styles.founderImageWrapper} ${styles.fadeUp} ${styles.delay2}`}>
+          <div className={`${styles.founderImageWrapper} ${styles.imageReveal}`}>
             <div className={styles.founderGlow}></div>
             <img 
               src="/founders/rohit.webp" 
@@ -31,7 +52,7 @@ export default function AboutUs() {
               className={styles.founderImage}
             />
           </div>
-          <div className={`${styles.founderContent} ${styles.fadeUp} ${styles.delay3}`}>
+          <div className={`${styles.founderContent} ${styles.reveal} ${styles.delay2}`}>
             <h2 className={styles.founderName}>Rohit Gautam</h2>
             <span className={styles.founderRole}>Co-Founder, FlowX AI</span>
             
@@ -67,7 +88,7 @@ export default function AboutUs() {
 
         {/* 2. FOUNDER SECTION - ROSHAN */}
         <div className={`${styles.founderRow} ${styles.reverse}`}>
-          <div className={`${styles.founderImageWrapper} ${styles.fadeUp} ${styles.delay2}`}>
+          <div className={`${styles.founderImageWrapper} ${styles.imageReveal}`}>
              <div className={styles.founderGlow}></div>
              <img 
               src="/founders/roshan.png" 
@@ -75,7 +96,7 @@ export default function AboutUs() {
               className={styles.founderImage}
             />
           </div>
-          <div className={`${styles.founderContent} ${styles.fadeUp} ${styles.delay3}`}>
+          <div className={`${styles.founderContent} ${styles.reveal} ${styles.delay2}`}>
             <h2 className={styles.founderName}>Roshan Dev</h2>
             <span className={styles.founderRole}>Co-Founder, FlowX AI</span>
             
@@ -113,13 +134,13 @@ export default function AboutUs() {
       {/* 3. STORY SECTION */}
       <section className={styles.storySection}>
         <div className={styles.storyContent}>
-          <h2 className={`${styles.sectionTitle} ${styles.fadeUp}`}>Why We Started FlowX AI</h2>
+          <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>Why We Started FlowX AI</h2>
           
-          <p className={`${styles.storyText} ${styles.fadeUp} ${styles.delay1}`}>
+          <p className={`${styles.storyText} ${styles.reveal} ${styles.delay1}`}>
             Most restaurants and local businesses don’t lose customers because they are bad.
           </p>
 
-          <div className={`${styles.storyList} ${styles.fadeUp} ${styles.delay2}`}>
+          <div className={`${styles.storyList} ${styles.reveal} ${styles.delay2}`}>
             <div className={styles.storyItem}><span className={styles.bullet}>•</span> They reply late</div>
             <div className={styles.storyItem}><span className={styles.bullet}>•</span> Orders get missed</div>
             <div className={styles.storyItem}><span className={styles.bullet}>•</span> Staff gets overloaded</div>
@@ -127,11 +148,11 @@ export default function AboutUs() {
             <div className={styles.storyItem}><span className={styles.bullet}>•</span> Competitors respond instantly</div>
           </div>
 
-          <p className={`${styles.storyText} ${styles.fadeUp} ${styles.delay3}`}>
+          <p className={`${styles.storyText} ${styles.reveal} ${styles.delay3}`}>
             We built FlowX AI to fix that.
           </p>
 
-           <h3 className={`${styles.missionStatement} ${styles.fadeUp} ${styles.delay4}`}>
+           <h3 className={`${styles.missionStatement} ${styles.reveal} ${styles.delay4}`}>
             We create automated revenue systems that work 24/7 — even when your staff is offline.
           </h3>
         </div>
@@ -139,34 +160,34 @@ export default function AboutUs() {
 
       {/* 4. PHILOSOPHY SECTION */}
       <section className={styles.philosophySection}>
-        <div className="text-center">
-            <h2 className={`${styles.sectionTitle} ${styles.fadeUp}`}>Our Philosophy</h2>
+        <div className="text-center" style={{ textAlign: 'center' }}>
+            <h2 className={`${styles.sectionTitle} ${styles.reveal}`}>Our Philosophy</h2>
         </div>
         
         <div className={styles.grid}>
           {/* Card 1 */}
-          <div className={`${styles.card} ${styles.fadeUp} ${styles.delay1}`}>
+          <div className={`${styles.card} ${styles.reveal} ${styles.delay1}`}>
             <TrendingUp className={styles.cardIcon} size={32} />
             <h3 className={styles.cardTitle}>Revenue First</h3>
             <p className={styles.cardText}>AI should increase revenue, not complexity. If it doesn't grow your bottom line, we don't build it.</p>
           </div>
 
           {/* Card 2 */}
-          <div className={`${styles.card} ${styles.fadeUp} ${styles.delay2}`}>
+          <div className={`${styles.card} ${styles.reveal} ${styles.delay2}`}>
             <Cpu className={styles.cardIcon} size={32} />
             <h3 className={styles.cardTitle}>Automation Over Manual</h3>
             <p className={styles.cardText}>Humans shouldn't do robot work. We automate the repetitive so your team can focus on the personal.</p>
           </div>
 
           {/* Card 3 */}
-          <div className={`${styles.card} ${styles.fadeUp} ${styles.delay3}`}>
+          <div className={`${styles.card} ${styles.reveal} ${styles.delay3}`}>
             <Clock className={styles.cardIcon} size={32} />
             <h3 className={styles.cardTitle}>Systems Over Staff</h3>
             <p className={styles.cardText}>Staff get sick, tired, and busy. Our systems work 24/7/365 without taking a break.</p>
           </div>
 
           {/* Card 4 */}
-          <div className={`${styles.card} ${styles.fadeUp} ${styles.delay4}`}>
+          <div className={`${styles.card} ${styles.reveal} ${styles.delay4}`}>
             <ShieldCheck className={styles.cardIcon} size={32} />
             <h3 className={styles.cardTitle}>Growth With Predictability</h3>
             <p className={styles.cardText}>Stop guessing. We build systems that give you predictable, scalable growth every single month.</p>
@@ -177,12 +198,12 @@ export default function AboutUs() {
       {/* 5. CTA SECTION */}
       <section className={styles.ctaSection}>
         <div className={styles.ctaContainer}>
-          <h2 className={`${styles.ctaTitle} ${styles.fadeUp}`}>Ready to Build a Real<br />AI Growth Engine?</h2>
-          <p className={`${styles.ctaText} ${styles.fadeUp} ${styles.delay1}`}>
+          <h2 className={`${styles.ctaTitle} ${styles.reveal}`}>Ready to Build a Real<br />AI Growth Engine?</h2>
+          <p className={`${styles.ctaText} ${styles.reveal} ${styles.delay1}`}>
             If you're tired of missed orders and manual chaos —<br />Let’s fix it properly.
           </p>
 
-          <div className={`${styles.buttonGroup} ${styles.fadeUp} ${styles.delay2}`}>
+          <div className={`${styles.buttonGroup} ${styles.reveal} ${styles.delay2}`}>
             <a href="https://calendly.com/flowxai/15-min-free-discovery-call" target="_blank" className={styles.primaryBtn}>
               Book Strategy Call
             </a>
@@ -191,7 +212,7 @@ export default function AboutUs() {
             </a>
           </div>
           
-          <p className={`${styles.whatsappSubtext} ${styles.fadeUp} ${styles.delay3}`}>
+          <p className={`${styles.whatsappSubtext} ${styles.reveal} ${styles.delay3}`}>
             Or message us directly on WhatsApp and we’ll show you how it works in your business.
           </p>
         </div>

@@ -1,8 +1,7 @@
 import { Link, useLocation } from "react-router";
 import { useState, useEffect } from "react";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight, Calendar } from "lucide-react";
 import styles from "./navbar.module.css";
-
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,58 +24,83 @@ export function Navbar() {
   ];
 
   return (
-    <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
-      <div className={styles.container}>
-        <div className={styles.logo}>
-          <Link to="/">
-            FlowX <span className={styles.logoHighlight}>AI</span>
-          </Link>
-        </div>
-
-        {/* Desktop Nav */}
-        <div className={styles.desktopNav}>
-          {navLinks.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              className={`${styles.navLink} ${location.pathname === link.path ? styles.active : ""}`}
-            >
-              {link.name}
+    <>
+      <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
+        <div className={styles.container}>
+          <div className={styles.logo}>
+            <Link to="/">
+              FlowX<span className={styles.logoHighlight}>AI</span>
             </Link>
-          ))}
-          <a href="https://calendly.com/flowxai/15-min-free-discovery-call" target="_blank" className={styles.ctaButton}>
-            Book Strategy Call
-          </a>
-        </div>
+          </div>
 
-        {/* Mobile Toggle */}
-        <button 
-          className={styles.mobileToggle}
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-
-        {/* Mobile Nav */}
-        <div className={`${styles.mobileNav} ${isOpen ? styles.open : ""}`}>
-          <div className={styles.mobileNavContent}>
+          {/* Desktop Nav */}
+          <div className={styles.desktopNav}>
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={styles.mobileNavLink}
-                onClick={() => setIsOpen(false)}
+                className={`${styles.navLink} ${location.pathname === link.path ? styles.active : ""}`}
               >
                 {link.name}
               </Link>
             ))}
-            <a href="https://calendly.com/flowxai/15-min-free-discovery-call" target="_blank" className={styles.mobileCtaButton} onClick={() => setIsOpen(false)}>
-              Book Strategy Call <ArrowRight size={16} />
+            <a 
+              href="https://calendly.com/flowxai/15-min-free-discovery-call" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className={styles.ctaButton}
+            >
+              Book Strategy Call
             </a>
           </div>
+
+          {/* Mobile Toggle */}
+          <button 
+            className={styles.mobileToggle}
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+
+          {/* Mobile Nav */}
+          <div className={`${styles.mobileNav} ${isOpen ? styles.open : ""}`}>
+            <div className={styles.mobileNavContent}>
+              {navLinks.map((link) => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`${styles.mobileNavLink} ${location.pathname === link.path ? styles.active : ""}`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              ))}
+              <a 
+                href="https://calendly.com/flowxai/15-min-free-discovery-call" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className={styles.mobileNavLink}
+                style={{ fontSize: '1.2rem', color: 'var(--color-accent-primary)' }}
+                onClick={() => setIsOpen(false)}
+              >
+                Book Strategy Call
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+
+      {/* Sticky Bottom CTA for Mobile */}
+      <a 
+        href="https://calendly.com/flowxai/15-min-free-discovery-call" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className={styles.stickyBottomCta}
+      >
+        <Calendar size={18} />
+        Book Strategy Call
+      </a>
+    </>
   );
 }
