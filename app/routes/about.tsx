@@ -108,9 +108,7 @@ export default function AboutUs() {
               From AI workflow design to scalable system integration, I ensure every automation runs fast, secure, and performance-driven.
             </p>
             
-            <div className={styles.founderHighlight}>
-              "If Rohit designs the strategy — I build the engine that powers it."
-            </div>
+
 
             <div className={styles.contactInfo}>
               <div className={styles.contactItem}>
