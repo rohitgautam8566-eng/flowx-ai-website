@@ -60,9 +60,7 @@ export default function AboutUs() {
               I help restaurants and local businesses turn missed messages, delayed replies, and manual chaos into automated revenue systems.
             </p>
             
-            <div className={styles.founderHighlight}>
-              "My focus is simple — Build predictable growth engines powered by AI."
-            </div>
+
 
             <p className={styles.founderBio}>
               From WhatsApp automation to conversion-driven funnels, I design systems that capture leads, confirm orders instantly, and increase repeat customers without increasing staff workload.

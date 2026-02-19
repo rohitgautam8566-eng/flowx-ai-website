@@ -186,18 +186,7 @@
   margin-bottom: 24px;
 }
 
-.founderHighlight {
-  color: #fff;
-  font-weight: 600;
-  border-left: 3px solid var(--color-accent-primary);
-  padding-left: 20px;
-  margin: 32px 0;
-  font-style: italic;
-  font-size: 1.1rem;
-  background: linear-gradient(90deg, rgba(0, 194, 255, 0.05), transparent);
-  padding: 16px;
-  border-radius: 0 8px 8px 0;
-}
+
 
 .contactInfo {
   margin-top: 32px;
